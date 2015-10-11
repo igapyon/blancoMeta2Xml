@@ -10,228 +10,228 @@
 package blanco.meta2xml.valueobject;
 
 /**
- * BlancoMeta2Xml �̂Ȃ��ŗ��p�����ValueObject�ł��B
+ * BlancoMeta2Xml のなかで利用されるValueObjectです。
  */
 public class BlancoMeta2XmlStructure {
     /**
-     * �t�B�[���h�����w�肵�܂��B�K�{���ڂł��B
+     * フィールド名を指定します。必須項目です。
      *
-     * �t�B�[���h: [name]�B
+     * フィールド: [name]。
      */
     private String fName;
 
     /**
-     * �p�b�P�[�W�����w�肵�܂��B�K�{���ڂł��B
+     * パッケージ名を指定します。必須項目です。
      *
-     * �t�B�[���h: [package]�B
+     * フィールド: [package]。
      */
     private String fPackage;
 
     /**
-     * ���̃o�����[�I�u�W�F�N�g�̐������L�ڂ��܂��B
+     * このバリューオブジェクトの説明を記載します。
      *
-     * �t�B�[���h: [description]�B
+     * フィールド: [description]。
      */
     private String fDescription;
 
     /**
-     * �t�@�C���R�����g���w�肵�܂��B
+     * ファイルコメントを指定します。
      *
-     * �t�B�[���h: [fileDescription]�B
-     * �f�t�H���g: ["���̃N���X��blancoValueObject�ɂ�莩����������܂����B"]�B
+     * フィールド: [fileDescription]。
+     * デフォルト: ["このクラスはblancoValueObjectにより自動生成されました。"]。
      */
-    private String fFileDescription = "���̃N���X��blancoValueObject�ɂ�莩����������܂����B";
+    private String fFileDescription = "このクラスはblancoValueObjectにより自動生成されました。";
 
     /**
-     * �ϊ���`�t�@�C���̈ʒu���w�肵�܂��B
+     * 変換定義ファイルの位置を指定します。
      *
-     * �t�B�[���h: [convertDefFile]�B
+     * フィールド: [convertDefFile]。
      */
     private String fConvertDefFile;
 
     /**
-     * ���̓t�@�C���g���q�B���^�f�B���N�g�������ɗ��p����܂��B
+     * 入力ファイル拡張子。メタディレクトリ処理に利用されます。
      *
-     * �t�B�[���h: [inputFileExt]�B
-     * �f�t�H���g: [".xls"]�B
+     * フィールド: [inputFileExt]。
+     * デフォルト: [".xls"]。
      */
     private String fInputFileExt = ".xls";
 
     /**
-     * �o�̓t�@�C���g���q�B���^�f�B���N�g�������ɗ��p����܂��B
+     * 出力ファイル拡張子。メタディレクトリ処理に利用されます。
      *
-     * �t�B�[���h: [outputFileExt]�B
-     * �f�t�H���g: [".xml"]�B
+     * フィールド: [outputFileExt]。
+     * デフォルト: [".xml"]。
      */
     private String fOutputFileExt = ".xml";
 
     /**
-     * �t�B�[���h [name] �̒l��ݒ肵�܂��B
+     * フィールド [name] の値を設定します。
      *
-     * �t�B�[���h�̐���: [�t�B�[���h�����w�肵�܂��B�K�{���ڂł��B]�B
+     * フィールドの説明: [フィールド名を指定します。必須項目です。]。
      *
-     * @param argName �t�B�[���h[name]�ɐݒ肷��l�B
+     * @param argName フィールド[name]に設定する値。
      */
     public void setName(final String argName) {
         fName = argName;
     }
 
     /**
-     * �t�B�[���h [name] �̒l���擾���܂��B
+     * フィールド [name] の値を取得します。
      *
-     * �t�B�[���h�̐���: [�t�B�[���h�����w�肵�܂��B�K�{���ڂł��B]�B
+     * フィールドの説明: [フィールド名を指定します。必須項目です。]。
      *
-     * @return �t�B�[���h[name]����擾�����l�B
+     * @return フィールド[name]から取得した値。
      */
     public String getName() {
         return fName;
     }
 
     /**
-     * �t�B�[���h [package] �̒l��ݒ肵�܂��B
+     * フィールド [package] の値を設定します。
      *
-     * �t�B�[���h�̐���: [�p�b�P�[�W�����w�肵�܂��B�K�{���ڂł��B]�B
+     * フィールドの説明: [パッケージ名を指定します。必須項目です。]。
      *
-     * @param argPackage �t�B�[���h[package]�ɐݒ肷��l�B
+     * @param argPackage フィールド[package]に設定する値。
      */
     public void setPackage(final String argPackage) {
         fPackage = argPackage;
     }
 
     /**
-     * �t�B�[���h [package] �̒l���擾���܂��B
+     * フィールド [package] の値を取得します。
      *
-     * �t�B�[���h�̐���: [�p�b�P�[�W�����w�肵�܂��B�K�{���ڂł��B]�B
+     * フィールドの説明: [パッケージ名を指定します。必須項目です。]。
      *
-     * @return �t�B�[���h[package]����擾�����l�B
+     * @return フィールド[package]から取得した値。
      */
     public String getPackage() {
         return fPackage;
     }
 
     /**
-     * �t�B�[���h [description] �̒l��ݒ肵�܂��B
+     * フィールド [description] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̃o�����[�I�u�W�F�N�g�̐������L�ڂ��܂��B]�B
+     * フィールドの説明: [このバリューオブジェクトの説明を記載します。]。
      *
-     * @param argDescription �t�B�[���h[description]�ɐݒ肷��l�B
+     * @param argDescription フィールド[description]に設定する値。
      */
     public void setDescription(final String argDescription) {
         fDescription = argDescription;
     }
 
     /**
-     * �t�B�[���h [description] �̒l���擾���܂��B
+     * フィールド [description] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̃o�����[�I�u�W�F�N�g�̐������L�ڂ��܂��B]�B
+     * フィールドの説明: [このバリューオブジェクトの説明を記載します。]。
      *
-     * @return �t�B�[���h[description]����擾�����l�B
+     * @return フィールド[description]から取得した値。
      */
     public String getDescription() {
         return fDescription;
     }
 
     /**
-     * �t�B�[���h [fileDescription] �̒l��ݒ肵�܂��B
+     * フィールド [fileDescription] の値を設定します。
      *
-     * �t�B�[���h�̐���: [�t�@�C���R�����g���w�肵�܂��B]�B
+     * フィールドの説明: [ファイルコメントを指定します。]。
      *
-     * @param argFileDescription �t�B�[���h[fileDescription]�ɐݒ肷��l�B
+     * @param argFileDescription フィールド[fileDescription]に設定する値。
      */
     public void setFileDescription(final String argFileDescription) {
         fFileDescription = argFileDescription;
     }
 
     /**
-     * �t�B�[���h [fileDescription] �̒l���擾���܂��B
+     * フィールド [fileDescription] の値を取得します。
      *
-     * �t�B�[���h�̐���: [�t�@�C���R�����g���w�肵�܂��B]�B
-     * �f�t�H���g: ["���̃N���X��blancoValueObject�ɂ�莩����������܂����B"]�B
+     * フィールドの説明: [ファイルコメントを指定します。]。
+     * デフォルト: ["このクラスはblancoValueObjectにより自動生成されました。"]。
      *
-     * @return �t�B�[���h[fileDescription]����擾�����l�B
+     * @return フィールド[fileDescription]から取得した値。
      */
     public String getFileDescription() {
         return fFileDescription;
     }
 
     /**
-     * �t�B�[���h [convertDefFile] �̒l��ݒ肵�܂��B
+     * フィールド [convertDefFile] の値を設定します。
      *
-     * �t�B�[���h�̐���: [�ϊ���`�t�@�C���̈ʒu���w�肵�܂��B]�B
+     * フィールドの説明: [変換定義ファイルの位置を指定します。]。
      *
-     * @param argConvertDefFile �t�B�[���h[convertDefFile]�ɐݒ肷��l�B
+     * @param argConvertDefFile フィールド[convertDefFile]に設定する値。
      */
     public void setConvertDefFile(final String argConvertDefFile) {
         fConvertDefFile = argConvertDefFile;
     }
 
     /**
-     * �t�B�[���h [convertDefFile] �̒l���擾���܂��B
+     * フィールド [convertDefFile] の値を取得します。
      *
-     * �t�B�[���h�̐���: [�ϊ���`�t�@�C���̈ʒu���w�肵�܂��B]�B
+     * フィールドの説明: [変換定義ファイルの位置を指定します。]。
      *
-     * @return �t�B�[���h[convertDefFile]����擾�����l�B
+     * @return フィールド[convertDefFile]から取得した値。
      */
     public String getConvertDefFile() {
         return fConvertDefFile;
     }
 
     /**
-     * �t�B�[���h [inputFileExt] �̒l��ݒ肵�܂��B
+     * フィールド [inputFileExt] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̓t�@�C���g���q�B���^�f�B���N�g�������ɗ��p����܂��B]�B
+     * フィールドの説明: [入力ファイル拡張子。メタディレクトリ処理に利用されます。]。
      *
-     * @param argInputFileExt �t�B�[���h[inputFileExt]�ɐݒ肷��l�B
+     * @param argInputFileExt フィールド[inputFileExt]に設定する値。
      */
     public void setInputFileExt(final String argInputFileExt) {
         fInputFileExt = argInputFileExt;
     }
 
     /**
-     * �t�B�[���h [inputFileExt] �̒l���擾���܂��B
+     * フィールド [inputFileExt] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̓t�@�C���g���q�B���^�f�B���N�g�������ɗ��p����܂��B]�B
-     * �f�t�H���g: [".xls"]�B
+     * フィールドの説明: [入力ファイル拡張子。メタディレクトリ処理に利用されます。]。
+     * デフォルト: [".xls"]。
      *
-     * @return �t�B�[���h[inputFileExt]����擾�����l�B
+     * @return フィールド[inputFileExt]から取得した値。
      */
     public String getInputFileExt() {
         return fInputFileExt;
     }
 
     /**
-     * �t�B�[���h [outputFileExt] �̒l��ݒ肵�܂��B
+     * フィールド [outputFileExt] の値を設定します。
      *
-     * �t�B�[���h�̐���: [�o�̓t�@�C���g���q�B���^�f�B���N�g�������ɗ��p����܂��B]�B
+     * フィールドの説明: [出力ファイル拡張子。メタディレクトリ処理に利用されます。]。
      *
-     * @param argOutputFileExt �t�B�[���h[outputFileExt]�ɐݒ肷��l�B
+     * @param argOutputFileExt フィールド[outputFileExt]に設定する値。
      */
     public void setOutputFileExt(final String argOutputFileExt) {
         fOutputFileExt = argOutputFileExt;
     }
 
     /**
-     * �t�B�[���h [outputFileExt] �̒l���擾���܂��B
+     * フィールド [outputFileExt] の値を取得します。
      *
-     * �t�B�[���h�̐���: [�o�̓t�@�C���g���q�B���^�f�B���N�g�������ɗ��p����܂��B]�B
-     * �f�t�H���g: [".xml"]�B
+     * フィールドの説明: [出力ファイル拡張子。メタディレクトリ処理に利用されます。]。
+     * デフォルト: [".xml"]。
      *
-     * @return �t�B�[���h[outputFileExt]����擾�����l�B
+     * @return フィールド[outputFileExt]から取得した値。
      */
     public String getOutputFileExt() {
         return fOutputFileExt;
     }
 
     /**
-     * ���̃o�����[�I�u�W�F�N�g�̕�����\�����擾���܂��B
+     * このバリューオブジェクトの文字列表現を取得します。
      *
-     * <P>�g�p��̒���</P>
+     * <P>使用上の注意</P>
      * <UL>
-     * <LI>�I�u�W�F�N�g�̃V�����[�͈͂̂ݕ����񉻂̏����ΏۂƂȂ�܂��B
-     * <LI>�I�u�W�F�N�g���z�Q�Ƃ��Ă���ꍇ�ɂ́A���̃��\�b�h�͎g��Ȃ��ł��������B
+     * <LI>オブジェクトのシャロー範囲のみ文字列化の処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
      * </UL>
      *
-     * @return �o�����[�I�u�W�F�N�g�̕�����\���B
+     * @return バリューオブジェクトの文字列表現。
      */
     @Override
     public String toString() {

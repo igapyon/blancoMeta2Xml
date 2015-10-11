@@ -31,28 +31,28 @@ public class BlancoMeta2XmlProcessImpl implements BlancoMeta2XmlProcess {
         try {
             final File fileMetadir = new File(input.getMetadir());
             if (fileMetadir.exists() == false) {
-                throw new IllegalArgumentException("ƒƒ^ƒfƒBƒŒƒNƒgƒŠ["
-                        + input.getMetadir() + "]‚ª‘¶İ‚µ‚Ü‚¹‚ñB");
+                throw new IllegalArgumentException("ãƒ¡ã‚¿ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª["
+                        + input.getMetadir() + "]ãŒå­˜åœ¨ã—ã¾ã›ã‚“ã€‚");
             }
 
-            // ƒeƒ“ƒ|ƒ‰ƒŠƒfƒBƒŒƒNƒgƒŠ‚ğì¬B
+            // ãƒ†ãƒ³ãƒãƒ©ãƒªãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä½œæˆã€‚
             new File(input.getTmpdir()
                     + BlancoMeta2XmlConstants.TARGET_SUBDIRECTORY).mkdirs();
 
-            // w’è‚³‚ê‚½ƒƒ^ƒfƒBƒŒƒNƒgƒŠ‚ğˆ—‚µ‚Ü‚·B
+            // æŒ‡å®šã•ã‚ŒãŸãƒ¡ã‚¿ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’å‡¦ç†ã—ã¾ã™ã€‚
             final BlancoMeta2XmlMeta2Xml meta2Xml = new BlancoMeta2XmlMeta2Xml();
             meta2Xml.setCacheMeta2Xml(input.getCache().equals("true"));
             meta2Xml.processDirectory(fileMetadir, input.getTmpdir()
                     + BlancoMeta2XmlConstants.TARGET_SUBDIRECTORY);
 
-            // XML‰»‚³‚ê‚½ƒƒ^ƒtƒ@ƒCƒ‹‚©‚çValueObject‚ğ¶¬
-            // Å‰‚Éƒeƒ“ƒ|ƒ‰ƒŠƒtƒHƒ‹ƒ_‚ğ‘–¸
+            // XMLåŒ–ã•ã‚ŒãŸãƒ¡ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ValueObjectã‚’ç”Ÿæˆ
+            // æœ€åˆã«ãƒ†ãƒ³ãƒãƒ©ãƒªãƒ•ã‚©ãƒ«ãƒ€ã‚’èµ°æŸ»
             final File fileWorkdir = new File(input.getTmpdir()
                     + BlancoMeta2XmlConstants.TARGET_SUBDIRECTORY);
             final File[] fileMeta2 = fileWorkdir.listFiles();
             if (fileMeta2 == null) {
-                throw new IllegalArgumentException("ƒ[ƒNƒfƒBƒŒƒNƒgƒŠ["
-                        + fileWorkdir.getAbsolutePath() + "]‚Ìƒtƒ@ƒCƒ‹ˆê——‚Ìæ“¾‚É¸”s‚µ‚Ü‚µ‚½B");
+                throw new IllegalArgumentException("ãƒ¯ãƒ¼ã‚¯ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª["
+                        + fileWorkdir.getAbsolutePath() + "]ã®ãƒ•ã‚¡ã‚¤ãƒ«ä¸€è¦§ã®å–å¾—ã«å¤±æ•—ã—ã¾ã—ãŸã€‚");
             }
 
             for (int index = 0; index < fileMeta2.length; index++) {

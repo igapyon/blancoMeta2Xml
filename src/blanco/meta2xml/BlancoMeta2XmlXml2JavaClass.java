@@ -32,30 +32,30 @@ import blanco.commons.util.BlancoXmlUtil;
 import blanco.meta2xml.valueobject.BlancoMeta2XmlStructure;
 
 /**
- * blancoValueObject‚Ìå‚½‚éƒNƒ‰ƒXB
+ * blancoValueObjectã®ä¸»ãŸã‚‹ã‚¯ãƒ©ã‚¹ã€‚
  * 
- * blancoValueObject‚ğ•\Œ»‚·‚éXMLƒtƒ@ƒCƒ‹‚©‚ç Javaƒ\[ƒXƒR[ƒh‚ğ©“®¶¬‚µ‚Ü‚·B
+ * blancoValueObjectã‚’è¡¨ç¾ã™ã‚‹XMLãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ Javaã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’è‡ªå‹•ç”Ÿæˆã—ã¾ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 public class BlancoMeta2XmlXml2JavaClass {
     /**
-     * “à•”“I‚É—˜—p‚·‚éblancoCg—pƒtƒ@ƒNƒgƒŠB
+     * å†…éƒ¨çš„ã«åˆ©ç”¨ã™ã‚‹blancoCgç”¨ãƒ•ã‚¡ã‚¯ãƒˆãƒªã€‚
      */
     private BlancoCgObjectFactory fCgFactory = null;
 
     /**
-     * “à•”“I‚É—˜—p‚·‚éblancoCg—pƒ\[ƒXƒtƒ@ƒCƒ‹î•ñB
+     * å†…éƒ¨çš„ã«åˆ©ç”¨ã™ã‚‹blancoCgç”¨ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«æƒ…å ±ã€‚
      */
     private BlancoCgSourceFile fCgSourceFile = null;
 
     /**
-     * “à•”“I‚É—˜—p‚·‚éblancoCg—pƒNƒ‰ƒXî•ñB
+     * å†…éƒ¨çš„ã«åˆ©ç”¨ã™ã‚‹blancoCgç”¨ã‚¯ãƒ©ã‚¹æƒ…å ±ã€‚
      */
     private BlancoCgClass fCgClass = null;
 
     /**
-     * ©“®¶¬‚·‚éƒ\[ƒXƒtƒ@ƒCƒ‹‚Ì•¶šƒGƒ“ƒR[ƒfƒBƒ“ƒOB
+     * è‡ªå‹•ç”Ÿæˆã™ã‚‹ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã®æ–‡å­—ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã€‚
      */
     private String fEncoding = null;
 
@@ -64,14 +64,14 @@ public class BlancoMeta2XmlXml2JavaClass {
     }
 
     /**
-     * ValueObject‚ğ•\Œ»‚·‚éXMLƒtƒ@ƒCƒ‹‚©‚ç Javaƒ\[ƒXƒR[ƒh‚ğ©“®¶¬‚µ‚Ü‚·B
+     * ValueObjectã‚’è¡¨ç¾ã™ã‚‹XMLãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ Javaã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’è‡ªå‹•ç”Ÿæˆã—ã¾ã™ã€‚
      * 
      * @param metaXmlSourceFile
-     *            ValueObject‚ÉŠÖ‚·‚éƒƒ^î•ñ‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éXMLƒtƒ@ƒCƒ‹
+     *            ValueObjectã«é–¢ã™ã‚‹ãƒ¡ã‚¿æƒ…å ±ãŒå«ã¾ã‚Œã¦ã„ã‚‹XMLãƒ•ã‚¡ã‚¤ãƒ«
      * @param directoryTarget
-     *            ƒ\[ƒXƒR[ƒh¶¬æƒfƒBƒŒƒNƒgƒŠ
+     *            ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ç”Ÿæˆå…ˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
      * @throws IOException
-     *             “üo—Í—áŠO‚ª”­¶‚µ‚½ê‡
+     *             å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆ
      */
     public void process(final File metaXmlSourceFile, final File directoryTarget)
             throws IOException {
@@ -81,7 +81,7 @@ public class BlancoMeta2XmlXml2JavaClass {
 
         final Node rootNode = result.getNode();
         if (rootNode instanceof Document) {
-            // ‚±‚ê‚ª³íŒnBƒhƒLƒ…ƒƒ“ƒgƒ‹[ƒg‚ğæ“¾
+            // ã“ã‚ŒãŒæ­£å¸¸ç³»ã€‚ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆãƒ«ãƒ¼ãƒˆã‚’å–å¾—
             final Document rootDocument = (Document) rootNode;
             final NodeList listSheet = rootDocument
                     .getElementsByTagName("sheet");
@@ -90,7 +90,7 @@ public class BlancoMeta2XmlXml2JavaClass {
                 final Element elementCommon = BlancoXmlUtil.getElement(
                         listSheet.item(index), "blancometa2xml-process-common");
                 if (elementCommon == null) {
-                    // common‚ª–³‚¢ê‡‚É‚ÍƒXƒLƒbƒv‚µ‚Ü‚·B
+                    // commonãŒç„¡ã„å ´åˆã«ã¯ã‚¹ã‚­ãƒƒãƒ—ã—ã¾ã™ã€‚
                     continue;
                 }
 
@@ -106,12 +106,12 @@ public class BlancoMeta2XmlXml2JavaClass {
     }
 
     /**
-     * ƒV[ƒg‚ğ“WŠJ‚µ‚Ü‚·B
+     * ã‚·ãƒ¼ãƒˆã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param elementCommon
-     *            Œ»İˆ—‚µ‚Ä‚¢‚éCommonƒm[ƒh
+     *            ç¾åœ¨å‡¦ç†ã—ã¦ã„ã‚‹Commonãƒãƒ¼ãƒ‰
      * @param directoryTarget
-     *            o—ÍæƒtƒHƒ‹ƒ_B
+     *            å‡ºåŠ›å…ˆãƒ•ã‚©ãƒ«ãƒ€ã€‚
      */
     private void expandSheet(final Element elementCommon,
             final File directoryTarget) {
@@ -122,8 +122,8 @@ public class BlancoMeta2XmlXml2JavaClass {
                 "package"));
         if (processStructure.getPackage() == null
                 || processStructure.getPackage().trim().length() == 0) {
-            throw new IllegalArgumentException("ƒƒ^ƒtƒ@ƒCƒ‹-XML•ÏŠ·ˆ—’è‹` ƒNƒ‰ƒX–¼["
-                    + processStructure.getName() + "]‚ÌƒpƒbƒP[ƒW‚ªw’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");
+            throw new IllegalArgumentException("ãƒ¡ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«-XMLå¤‰æ›å‡¦ç†å®šç¾© ã‚¯ãƒ©ã‚¹å["
+                    + processStructure.getName() + "]ã®ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ãŒæŒ‡å®šã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");
         }
 
         if (BlancoXmlUtil.getTextContent(elementCommon, "description") != null) {
@@ -139,8 +139,8 @@ public class BlancoMeta2XmlXml2JavaClass {
                 elementCommon, "convertDefFile"));
         if (processStructure.getConvertDefFile() == null
                 || processStructure.getConvertDefFile().trim().length() == 0) {
-            throw new IllegalArgumentException("ƒƒ^ƒtƒ@ƒCƒ‹-XML•ÏŠ·ˆ—’è‹` ƒNƒ‰ƒX–¼["
-                    + processStructure.getName() + "]‚Ì•ÏŠ·’è‹`ƒtƒ@ƒCƒ‹‚ªw’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");
+            throw new IllegalArgumentException("ãƒ¡ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«-XMLå¤‰æ›å‡¦ç†å®šç¾© ã‚¯ãƒ©ã‚¹å["
+                    + processStructure.getName() + "]ã®å¤‰æ›å®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ãŒæŒ‡å®šã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");
         }
 
         if (BlancoXmlUtil.getTextContent(elementCommon, "inputFileExt") != null) {
@@ -156,23 +156,23 @@ public class BlancoMeta2XmlXml2JavaClass {
     }
 
     /**
-     * ûW‚³‚ê‚½î•ñ‚ğŒ³‚ÉAJavaƒ\[ƒXƒR[ƒh‚ğo—Í‚µ‚Ü‚·B
+     * åé›†ã•ã‚ŒãŸæƒ…å ±ã‚’å…ƒã«ã€Javaã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚
      * 
      * @param processStructure
-     *            ˆ—\‘¢
+     *            å‡¦ç†æ§‹é€ 
      * @param directoryTarget
-     *            o—ÍæƒtƒHƒ‹ƒ_B
+     *            å‡ºåŠ›å…ˆãƒ•ã‚©ãƒ«ãƒ€ã€‚
      */
     private void expandJavaSource(
             final BlancoMeta2XmlStructure processStructure,
             final File directoryTarget) {
-        // ]—ˆ‚ÆŒİŠ·«‚ğ‚½‚¹‚é‚½‚ßA/mainƒTƒuƒtƒHƒ‹ƒ_‚Éo—Í‚µ‚Ü‚·B
+        // å¾“æ¥ã¨äº’æ›æ€§ã‚’æŒãŸã›ã‚‹ãŸã‚ã€/mainã‚µãƒ–ãƒ•ã‚©ãƒ«ãƒ€ã«å‡ºåŠ›ã—ã¾ã™ã€‚
         final File fileBlancoMain = new File(directoryTarget.getAbsolutePath()
                 + "/main");
 
         fCgFactory = BlancoCgObjectFactory.getInstance();
         fCgSourceFile = fCgFactory.createSourceFile(processStructure
-                .getPackage(), "‚±‚Ìƒ\[ƒXƒR[ƒh‚Í blanco Framework‚É‚æ‚Á‚Ä©“®¶¬‚³‚ê‚Ä‚¢‚Ü‚·B");
+                .getPackage(), "ã“ã®ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã¯ blanco Frameworkã«ã‚ˆã£ã¦è‡ªå‹•ç”Ÿæˆã•ã‚Œã¦ã„ã¾ã™ã€‚");
         fCgSourceFile.setEncoding(fEncoding);
         if (processStructure.getFileDescription() != null) {
             fCgSourceFile.getLangDoc().getDescriptionList().add(
@@ -198,7 +198,7 @@ public class BlancoMeta2XmlXml2JavaClass {
         {
             final BlancoCgField field = fCgFactory.createField(
                     "fCacheMeta2Xml", "boolean",
-                    "’è‹`‘ƒƒ^ƒtƒ@ƒCƒ‹‚©‚ç’†ŠÔXMLƒtƒ@ƒCƒ‹‚Ö‚Ì•ÏŠ·‚ğƒLƒƒƒbƒVƒ…‚ÅÏ‚Ü‚·‚©‚Ç‚¤‚©‚Ìƒtƒ‰ƒOB");
+                    "å®šç¾©æ›¸ãƒ¡ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ä¸­é–“XMLãƒ•ã‚¡ã‚¤ãƒ«ã¸ã®å¤‰æ›ã‚’ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã§æ¸ˆã¾ã™ã‹ã©ã†ã‹ã®ãƒ•ãƒ©ã‚°ã€‚");
             fCgClass.getFieldList().add(field);
             field.setAccess("protected");
             field.setDefault("false");
@@ -207,7 +207,7 @@ public class BlancoMeta2XmlXml2JavaClass {
         {
             final BlancoCgField field = fCgFactory.createField(
                     "fCacheMeta2XmlCount", "int",
-                    "’è‹`‘ƒƒ^ƒtƒ@ƒCƒ‹‚©‚ç’†ŠÔXMLƒtƒ@ƒCƒ‹‚Ö‚Ì•ÏŠ·‚ğƒLƒƒƒbƒVƒ…‚ÅÏ‚Ü‚¹‚½‰ñ”B");
+                    "å®šç¾©æ›¸ãƒ¡ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ä¸­é–“XMLãƒ•ã‚¡ã‚¤ãƒ«ã¸ã®å¤‰æ›ã‚’ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã§æ¸ˆã¾ã›ãŸå›æ•°ã€‚");
             fCgClass.getFieldList().add(field);
             field.setAccess("protected");
             field.setDefault("0");
@@ -216,7 +216,7 @@ public class BlancoMeta2XmlXml2JavaClass {
         {
             final BlancoCgField field = fCgFactory.createField(
                     "fCacheMetaDefXml", "byte[]",
-                    "ƒNƒ‰ƒXƒ[ƒ_‚©‚ç‚Ì’è‹`‘\‘¢XMLƒtƒ@ƒCƒ‹‚Ì“Ç‰ñ”‚ğŒ¸‚ç‚·‚½‚ß‚ÌƒLƒƒƒbƒVƒ…B");
+                    "ã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ã‹ã‚‰ã®å®šç¾©æ›¸æ§‹é€ XMLãƒ•ã‚¡ã‚¤ãƒ«ã®èª­è¾¼å›æ•°ã‚’æ¸›ã‚‰ã™ãŸã‚ã®ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã€‚");
             fCgClass.getFieldList().add(field);
             field.setAccess("protected");
             field.setDefault("null");
@@ -225,12 +225,12 @@ public class BlancoMeta2XmlXml2JavaClass {
         {
             final BlancoCgMethod method = fCgFactory.createMethod(
                     "setCacheMeta2Xml",
-                    "’è‹`‘ƒƒ^ƒtƒ@ƒCƒ‹‚©‚ç’†ŠÔXMLƒtƒ@ƒCƒ‹‚Ö‚Ì•ÏŠ·‚ğƒLƒƒƒbƒVƒ…‚ÅÏ‚Ü‚·‚©‚Ç‚¤‚©‚Ìƒtƒ‰ƒO‚ğw’è‚µ‚Ü‚·B");
+                    "å®šç¾©æ›¸ãƒ¡ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ä¸­é–“XMLãƒ•ã‚¡ã‚¤ãƒ«ã¸ã®å¤‰æ›ã‚’ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã§æ¸ˆã¾ã™ã‹ã©ã†ã‹ã®ãƒ•ãƒ©ã‚°ã‚’æŒ‡å®šã—ã¾ã™ã€‚");
             fCgClass.getMethodList().add(method);
 
             method.getParameterList().add(
                     fCgFactory.createParameter("argCacheMeta2Xml", "boolean",
-                            "’è‹`‘ƒƒ^ƒtƒ@ƒCƒ‹‚©‚ç’†ŠÔXMLƒtƒ@ƒCƒ‹‚Ö‚Ì•ÏŠ·‚ğƒLƒƒƒbƒVƒ…‚ÅÏ‚Ü‚·‚©‚Ç‚¤‚©B"));
+                            "å®šç¾©æ›¸ãƒ¡ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ä¸­é–“XMLãƒ•ã‚¡ã‚¤ãƒ«ã¸ã®å¤‰æ›ã‚’ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã§æ¸ˆã¾ã™ã‹ã©ã†ã‹ã€‚"));
 
             final List<java.lang.String> listLine = method.getLineList();
             listLine.add("fCacheMeta2Xml = argCacheMeta2Xml;");
@@ -238,23 +238,23 @@ public class BlancoMeta2XmlXml2JavaClass {
 
         {
             final BlancoCgMethod methodProcess1 = fCgFactory.createMethod(
-                    "process", "Excelƒtƒ@ƒCƒ‹‚ÌƒXƒgƒŠ[ƒ€‚ğXMLƒtƒ@ƒCƒ‹‚ÌƒXƒgƒŠ[ƒ€‚É•ÏŠ·‚µ‚Ü‚·B");
+                    "process", "Excelãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¹ãƒˆãƒªãƒ¼ãƒ ã‚’XMLãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¹ãƒˆãƒªãƒ¼ãƒ ã«å¤‰æ›ã—ã¾ã™ã€‚");
             fCgClass.getMethodList().add(methodProcess1);
             methodProcess1.getLangDoc().getDescriptionList().add(
-                    "’è‹`ƒtƒ@ƒCƒ‹‚Í“à•”“I‚ÉƒpƒX‚ğ•Û‚µ‚Ä‚¢‚Ü‚·B");
+                    "å®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã¯å†…éƒ¨çš„ã«ãƒ‘ã‚¹ã‚’ä¿æŒã—ã¦ã„ã¾ã™ã€‚");
             methodProcess1.getParameterList().add(
                     fCgFactory.createParameter("inStreamMetaSource",
-                            "java.io.InputStream", "ƒƒ^ƒtƒ@ƒCƒ‹‚Ì“ü—ÍƒXƒgƒŠ[ƒ€B"));
+                            "java.io.InputStream", "ãƒ¡ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã®å…¥åŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ ã€‚"));
             methodProcess1.getParameterList().add(
                     fCgFactory.createParameter("outStreamTarget",
-                            "java.io.OutputStream", "XMLƒtƒ@ƒCƒ‹‚Ìo—ÍƒXƒgƒŠ[ƒ€B"));
+                            "java.io.OutputStream", "XMLãƒ•ã‚¡ã‚¤ãƒ«ã®å‡ºåŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ ã€‚"));
             methodProcess1.getThrowList().add(
                     fCgFactory.createException("java.io.IOException",
-                            "“üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B"));
+                            "å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚"));
             methodProcess1.getThrowList().add(
                     fCgFactory.createException(
                             "javax.xml.transform.TransformerException",
-                            "XML•ÏŠ·—áŠO‚ª”­¶‚µ‚½ê‡B"));
+                            "XMLå¤‰æ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚"));
             final List<java.lang.String> listLine = methodProcess1
                     .getLineList();
             listLine.add("if (inStreamMetaSource == null) {");
@@ -270,16 +270,16 @@ public class BlancoMeta2XmlXml2JavaClass {
             listLine.add("}");
             listLine.add("");
             listLine.add("if (fCacheMetaDefXml == null) {");
-            listLine.add("// ‚±‚ÌƒNƒ‰ƒX©g‚Æ‚¨‚È‚¶ƒNƒ‰ƒXƒ[ƒ_‚©‚çXMLİ’èƒtƒ@ƒCƒ‹‚Ìƒ[ƒh‚ğ‚¨‚±‚È‚¢‚Ü‚·B");
+            listLine.add("// ã“ã®ã‚¯ãƒ©ã‚¹è‡ªèº«ã¨ãŠãªã˜ã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ã‹ã‚‰XMLè¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ­ãƒ¼ãƒ‰ã‚’ãŠã“ãªã„ã¾ã™ã€‚");
             listLine
                     .add("final InputStream meta2xmlStream = getClass().getClassLoader().getResourceAsStream(\""
                             + processStructure.getConvertDefFile() + "\");");
             listLine.add("if (meta2xmlStream == null) {");
             listLine
                     .add("throw new IllegalArgumentException(\""
-                            + processStructure.getName() + ": ƒŠƒ\[ƒX["
+                            + processStructure.getName() + ": ãƒªã‚½ãƒ¼ã‚¹["
                             + processStructure.getConvertDefFile()
-                            + "]‚Ìæ“¾‚É¸”s‚µ‚Ü‚µ‚½.\");");
+                            + "]ã®å–å¾—ã«å¤±æ•—ã—ã¾ã—ãŸ.\");");
             listLine.add("}");
             fCgSourceFile.getImportList().add("java.io.ByteArrayOutputStream");
             fCgSourceFile.getImportList().add("java.io.ByteArrayInputStream");
@@ -313,21 +313,21 @@ public class BlancoMeta2XmlXml2JavaClass {
 
         {
             final BlancoCgMethod methodProcess2 = fCgFactory.createMethod(
-                    "process", "Excelƒtƒ@ƒCƒ‹‚ğXMLƒtƒ@ƒCƒ‹‚É•ÏŠ·‚µ‚Ü‚·B");
+                    "process", "Excelãƒ•ã‚¡ã‚¤ãƒ«ã‚’XMLãƒ•ã‚¡ã‚¤ãƒ«ã«å¤‰æ›ã—ã¾ã™ã€‚");
             fCgClass.getMethodList().add(methodProcess2);
             methodProcess2.getParameterList().add(
                     fCgFactory.createParameter("fileMeta", "java.io.File",
-                            "ƒƒ^ƒtƒ@ƒCƒ‹‚Ì“ü—Íƒtƒ@ƒCƒ‹B"));
+                            "ãƒ¡ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã®å…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã€‚"));
             methodProcess2.getParameterList().add(
                     fCgFactory.createParameter("fileOutput", "java.io.File",
-                            "XMLƒtƒ@ƒCƒ‹‚Ìo—ÍB"));
+                            "XMLãƒ•ã‚¡ã‚¤ãƒ«ã®å‡ºåŠ›ã€‚"));
             methodProcess2.getThrowList().add(
                     fCgFactory.createException("java.io.IOException",
-                            "“üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B"));
+                            "å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚"));
             methodProcess2.getThrowList().add(
                     fCgFactory.createException(
                             "javax.xml.transform.TransformerException",
-                            "XML•ÏŠ·—áŠO‚ª”­¶‚µ‚½ê‡B"));
+                            "XMLå¤‰æ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚"));
             final List<java.lang.String> listLine = methodProcess2
                     .getLineList();
 
@@ -350,7 +350,7 @@ public class BlancoMeta2XmlXml2JavaClass {
             listLine.add("");
             listLine
                     .add("if (fCacheMeta2Xml && fileMeta.lastModified() < fileOutput.lastModified()) {");
-            listLine.add("// ƒLƒƒƒbƒVƒ…‚ğ—˜—p‚µ‚ÄAˆ—‚ğƒXƒLƒbƒv‚µ‚Ü‚·B");
+            listLine.add("// ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã‚’åˆ©ç”¨ã—ã¦ã€å‡¦ç†ã‚’ã‚¹ã‚­ãƒƒãƒ—ã—ã¾ã™ã€‚");
             listLine.add("fCacheMeta2XmlCount++;");
             listLine.add("return;");
             listLine.add("}");
@@ -363,7 +363,7 @@ public class BlancoMeta2XmlXml2JavaClass {
             listLine
                     .add("outStream = new BufferedOutputStream(new FileOutputStream(fileOutput), 8192);");
             listLine.add("");
-            listLine.add("// ƒXƒgƒŠ[ƒ€‚Ì€”õ‚ª‚Å‚«‚½‚Ì‚ÅAÀÛ‚Ìˆ—‚ğ‚¨‚±‚È‚¢‚Ü‚·B");
+            listLine.add("// ã‚¹ãƒˆãƒªãƒ¼ãƒ ã®æº–å‚™ãŒã§ããŸã®ã§ã€å®Ÿéš›ã®å‡¦ç†ã‚’ãŠã“ãªã„ã¾ã™ã€‚");
             listLine.add("process(inStream, outStream);");
             listLine.add("");
             listLine.add("outStream.flush();");
@@ -380,28 +380,28 @@ public class BlancoMeta2XmlXml2JavaClass {
         {
             final BlancoCgMethod methodProcessDirectory = fCgFactory
                     .createMethod("processDirectory",
-                            "w’èƒfƒBƒŒƒNƒgƒŠ“à‚ÌExcelƒtƒ@ƒCƒ‹‚ğXMLƒtƒ@ƒCƒ‹‚É•ÏŠ·‚µ‚Ü‚·B");
+                            "æŒ‡å®šãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå†…ã®Excelãƒ•ã‚¡ã‚¤ãƒ«ã‚’XMLãƒ•ã‚¡ã‚¤ãƒ«ã«å¤‰æ›ã—ã¾ã™ã€‚");
             fCgClass.getMethodList().add(methodProcessDirectory);
             methodProcessDirectory.getLangDoc().getDescriptionList().add(
-                    "w’è‚³‚ê‚½ƒtƒHƒ‹ƒ_“à‚ÌŠg’£q[" + processStructure.getInputFileExt()
-                            + "]‚Ìƒtƒ@ƒCƒ‹‚ğˆ—‚µ‚Ü‚·B<br>");
+                    "æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚©ãƒ«ãƒ€å†…ã®æ‹¡å¼µå­[" + processStructure.getInputFileExt()
+                            + "]ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡¦ç†ã—ã¾ã™ã€‚<br>");
             methodProcessDirectory.getLangDoc().getDescriptionList().add(
-                    "ˆ—‚µ‚½ƒf[ƒ^‚Í ‚à‚Æ‚Ìƒtƒ@ƒCƒ‹–¼‚ÉŠg’£q["
+                    "å‡¦ç†ã—ãŸãƒ‡ãƒ¼ã‚¿ã¯ ã‚‚ã¨ã®ãƒ•ã‚¡ã‚¤ãƒ«åã«æ‹¡å¼µå­["
                             + processStructure.getOutputFileExt()
-                            + "]‚ğ•t—^‚µ‚½ƒtƒ@ƒCƒ‹‚Ö•Û‘¶‚µ‚Ü‚·B");
+                            + "]ã‚’ä»˜ä¸ã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ã¸ä¿å­˜ã—ã¾ã™ã€‚");
             methodProcessDirectory.getParameterList().add(
                     fCgFactory.createParameter("fileMetadir", "java.io.File",
-                            "ƒƒ^ƒtƒ@ƒCƒ‹‚ªŠi”[‚³‚ê‚Ä‚¢‚é“ü—ÍƒfƒBƒŒƒNƒgƒŠB"));
+                            "ãƒ¡ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ãŒæ ¼ç´ã•ã‚Œã¦ã„ã‚‹å…¥åŠ›ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã€‚"));
             methodProcessDirectory.getParameterList().add(
                     fCgFactory.createParameter("targetDirectory",
-                            "java.lang.String", "o—ÍƒfƒBƒŒƒNƒgƒŠB"));
+                            "java.lang.String", "å‡ºåŠ›ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã€‚"));
             methodProcessDirectory.getThrowList().add(
                     fCgFactory.createException("java.io.IOException",
-                            "“üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B"));
+                            "å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚"));
             methodProcessDirectory.getThrowList().add(
                     fCgFactory.createException(
                             "javax.xml.transform.TransformerException",
-                            "XML•ÏŠ·—áŠO‚ª”­¶‚µ‚½ê‡B"));
+                            "XMLå¤‰æ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚"));
             final List<java.lang.String> listLine = methodProcessDirectory
                     .getLineList();
 
@@ -429,11 +429,11 @@ public class BlancoMeta2XmlXml2JavaClass {
             listLine
                     .add("final File fileTargetDirectory = new File(targetDirectory);");
             listLine.add("if (fileTargetDirectory.exists() == false) {");
-            listLine.add("// o—ÍæƒfƒBƒŒƒNƒgƒŠ‚ª‘¶İ‚µ‚È‚¢‚Ì‚ÅA–‘O‚Éì¬‚µ‚Ü‚·B");
+            listLine.add("// å‡ºåŠ›å…ˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå­˜åœ¨ã—ãªã„ã®ã§ã€äº‹å‰ã«ä½œæˆã—ã¾ã™ã€‚");
             listLine.add("fileTargetDirectory.mkdirs();");
             listLine.add("}");
             listLine.add("");
-            listLine.add("// w’è‚³‚ê‚½ƒfƒBƒŒƒNƒgƒŠ‚Ìƒtƒ@ƒCƒ‹ˆê——‚ğæ“¾‚µ‚Ü‚·B");
+            listLine.add("// æŒ‡å®šã•ã‚ŒãŸãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ•ã‚¡ã‚¤ãƒ«ä¸€è¦§ã‚’å–å¾—ã—ã¾ã™ã€‚");
             listLine.add("final File[] fileMeta = fileMetadir.listFiles();");
             listLine.add("if (fileMeta == null) {");
             listLine
@@ -445,14 +445,14 @@ public class BlancoMeta2XmlXml2JavaClass {
                     + BlancoJavaSourceUtil
                             .escapeStringAsJavaSource(processStructure
                                     .getInputFileExt()) + "\") == false) {");
-            listLine.add("// ƒtƒ@ƒCƒ‹‚ÌŠg’£q‚ªˆ—‚·‚×‚«‚à‚Ì‚Æ‚ÍˆÙ‚È‚é‚½‚ßˆ—‚ğƒXƒLƒbƒv‚µ‚Ü‚·BB");
+            listLine.add("// ãƒ•ã‚¡ã‚¤ãƒ«ã®æ‹¡å¼µå­ãŒå‡¦ç†ã™ã¹ãã‚‚ã®ã¨ã¯ç•°ãªã‚‹ãŸã‚å‡¦ç†ã‚’ã‚¹ã‚­ãƒƒãƒ—ã—ã¾ã™ã€‚ã€‚");
             listLine.add("continue;");
             listLine.add("}");
             listLine.add("");
 
             listLine
                     .add("if (progress(index + 1, fileMeta.length, fileMeta[index].getName()) == false) {");
-            listLine.add("// i’»•\¦‚©‚çˆ—’†’f‚Ìw¦‚ª—ˆ‚½‚Ì‚ÅAˆ—’†’f‚µ‚Ü‚·B");
+            listLine.add("// é€²æ—è¡¨ç¤ºã‹ã‚‰å‡¦ç†ä¸­æ–­ã®æŒ‡ç¤ºãŒæ¥ãŸã®ã§ã€å‡¦ç†ä¸­æ–­ã—ã¾ã™ã€‚");
             listLine.add("break;");
             listLine.add("}");
 
@@ -486,26 +486,26 @@ public class BlancoMeta2XmlXml2JavaClass {
 
         {
             final BlancoCgMethod methodProgress = fCgFactory.createMethod(
-                    "progress", "ˆ—‚Ìi’»‚ğ¦‚µ‚Ü‚·B");
+                    "progress", "å‡¦ç†ã®é€²æ—ã‚’ç¤ºã—ã¾ã™ã€‚");
             fCgClass.getMethodList().add(methodProgress);
             methodProgress.setAccess("protected");
             methodProgress.getLangDoc().getDescriptionList().add(
-                    "i’»•\¦‚ğ‚³‚¹‚½‚¢ê‡‚É‚ÍŒp³‚µ‚Äˆ—‚ğì‚è‚±‚İ‚Ü‚·B");
+                    "é€²æ—è¡¨ç¤ºã‚’ã•ã›ãŸã„å ´åˆã«ã¯ç¶™æ‰¿ã—ã¦å‡¦ç†ã‚’ä½œã‚Šã“ã¿ã¾ã™ã€‚");
             methodProgress.getParameterList().add(
                     fCgFactory.createParameter("progressCurrent", "int",
-                            "Œ»İˆ—‚µ‚Ä‚¢‚éŒ”‚Ì”Ô†B"));
+                            "ç¾åœ¨å‡¦ç†ã—ã¦ã„ã‚‹ä»¶æ•°ã®ç•ªå·ã€‚"));
             methodProgress.getParameterList().add(
                     fCgFactory
-                            .createParameter("progressTotal", "int", "‘ˆ—Œ”B"));
+                            .createParameter("progressTotal", "int", "ç·å‡¦ç†ä»¶æ•°ã€‚"));
             methodProgress.getParameterList().add(
                     fCgFactory.createParameter("progressItem",
-                            "java.lang.String", "ˆ—‚µ‚Ä‚¢‚éƒAƒCƒeƒ€–¼B"));
+                            "java.lang.String", "å‡¦ç†ã—ã¦ã„ã‚‹ã‚¢ã‚¤ãƒ†ãƒ åã€‚"));
             methodProgress.setReturn(fCgFactory.createReturn("boolean",
-                    "ˆ—‚ğ‘±s‚µ‚Ä‚æ‚¢‚©‚Ç‚¤‚©Bfalse‚È‚çˆ—’†’fB"));
+                    "å‡¦ç†ã‚’ç¶šè¡Œã—ã¦ã‚ˆã„ã‹ã©ã†ã‹ã€‚falseãªã‚‰å‡¦ç†ä¸­æ–­ã€‚"));
             final List<java.lang.String> listLine = methodProgress
                     .getLineList();
 
-            listLine.add("// í‚Éˆ—‘±s‚ğ¦‚· true ‚ğ–ß‚µ‚Ü‚·B");
+            listLine.add("// å¸¸ã«å‡¦ç†ç¶šè¡Œã‚’ç¤ºã™ true ã‚’æˆ»ã—ã¾ã™ã€‚");
             listLine.add("return true;");
         }
 

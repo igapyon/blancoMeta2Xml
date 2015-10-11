@@ -15,13 +15,13 @@ import org.apache.tools.ant.Task;
 import blanco.meta2xml.task.valueobject.BlancoMeta2XmlProcessInput;
 
 /**
- * Apache Antƒ^ƒXƒN [BlancoMeta2Xml]‚ÌƒNƒ‰ƒXB
+ * Apache Antã‚¿ã‚¹ã‚¯ [BlancoMeta2Xml]ã®ã‚¯ãƒ©ã‚¹ã€‚
  *
- * Excelƒƒ^ƒtƒ@ƒCƒ‹‚©‚çXMLƒtƒ@ƒCƒ‹‚Ö‚Ì•ÏŠ·ˆ—‚ğ‚¨‚±‚È‚¤AntTask‚Å‚·B<br>
- * ‚±‚ÌƒNƒ‰ƒX‚Å‚ÍAApache Antƒ^ƒXƒN‚Åˆê”Ê“I‚É•K—v‚Èƒ`ƒFƒbƒN‚È‚Ç‚ÌƒR[ƒfƒBƒ“ƒO‚ğŒ¨‘ã‚í‚è‚µ‚Ü‚·B
- * ÀÛ‚Ìˆ—‚Í ƒpƒbƒP[ƒW[blanco.meta2xml.task]‚ÉBlancoMeta2XmlBatchProcessƒNƒ‰ƒX‚ğì¬‚µ‚Ä‹Lq‚µ‚Ä‚­‚¾‚³‚¢B<br>
+ * Excelãƒ¡ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰XMLãƒ•ã‚¡ã‚¤ãƒ«ã¸ã®å¤‰æ›å‡¦ç†ã‚’ãŠã“ãªã†AntTaskã§ã™ã€‚<br>
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã§ã¯ã€Apache Antã‚¿ã‚¹ã‚¯ã§ä¸€èˆ¬çš„ã«å¿…è¦ãªãƒã‚§ãƒƒã‚¯ãªã©ã®ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã‚’è‚©ä»£ã‚ã‚Šã—ã¾ã™ã€‚
+ * å®Ÿéš›ã®å‡¦ç†ã¯ ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸[blanco.meta2xml.task]ã«BlancoMeta2XmlBatchProcessã‚¯ãƒ©ã‚¹ã‚’ä½œæˆã—ã¦è¨˜è¿°ã—ã¦ãã ã•ã„ã€‚<br>
  * <br>
- * Antƒ^ƒXƒN‚Ö‚Ì‘g‚İ‚İ—á<br>
+ * Antã‚¿ã‚¹ã‚¯ã¸ã®çµ„ã¿è¾¼ã¿ä¾‹<br>
  * <pre>
  * &lt;taskdef name=&quot;blancometa2xml&quot; classname=&quot;blanco.meta2xml.task.BlancoMeta2XmlTask">
  *     &lt;classpath&gt;
@@ -33,60 +33,60 @@ import blanco.meta2xml.task.valueobject.BlancoMeta2XmlProcessInput;
  */
 public class BlancoMeta2XmlTask extends Task {
     /**
-     * Excelƒƒ^ƒtƒ@ƒCƒ‹‚©‚çXMLƒtƒ@ƒCƒ‹‚Ö‚Ì•ÏŠ·ˆ—‚ğ‚¨‚±‚È‚¤AntTask‚Å‚·B
+     * Excelãƒ¡ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰XMLãƒ•ã‚¡ã‚¤ãƒ«ã¸ã®å¤‰æ›å‡¦ç†ã‚’ãŠã“ãªã†AntTaskã§ã™ã€‚
      */
     protected BlancoMeta2XmlProcessInput fInput = new BlancoMeta2XmlProcessInput();
 
     /**
-     * ƒtƒB[ƒ‹ƒh [metadir] ‚É’l‚ªƒZƒbƒg‚³‚ê‚½‚©‚Ç‚¤‚©B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [metadir] ã«å€¤ãŒã‚»ãƒƒãƒˆã•ã‚ŒãŸã‹ã©ã†ã‹ã€‚
      */
     protected boolean fIsFieldMetadirProcessed = false;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [targetdir] ‚É’l‚ªƒZƒbƒg‚³‚ê‚½‚©‚Ç‚¤‚©B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [targetdir] ã«å€¤ãŒã‚»ãƒƒãƒˆã•ã‚ŒãŸã‹ã©ã†ã‹ã€‚
      */
     protected boolean fIsFieldTargetdirProcessed = false;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [tmpdir] ‚É’l‚ªƒZƒbƒg‚³‚ê‚½‚©‚Ç‚¤‚©B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [tmpdir] ã«å€¤ãŒã‚»ãƒƒãƒˆã•ã‚ŒãŸã‹ã©ã†ã‹ã€‚
      */
     protected boolean fIsFieldTmpdirProcessed = false;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [encoding] ‚É’l‚ªƒZƒbƒg‚³‚ê‚½‚©‚Ç‚¤‚©B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [encoding] ã«å€¤ãŒã‚»ãƒƒãƒˆã•ã‚ŒãŸã‹ã©ã†ã‹ã€‚
      */
     protected boolean fIsFieldEncodingProcessed = false;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [cache] ‚É’l‚ªƒZƒbƒg‚³‚ê‚½‚©‚Ç‚¤‚©B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [cache] ã«å€¤ãŒã‚»ãƒƒãƒˆã•ã‚ŒãŸã‹ã©ã†ã‹ã€‚
      */
     protected boolean fIsFieldCacheProcessed = false;
 
     /**
-     * verboseƒ‚[ƒh‚Å“®ì‚³‚¹‚é‚©‚Ç‚¤‚©B
+     * verboseãƒ¢ãƒ¼ãƒ‰ã§å‹•ä½œã•ã›ã‚‹ã‹ã©ã†ã‹ã€‚
      *
-     * @param arg verboseƒ‚[ƒh‚Å“®ì‚³‚¹‚é‚©‚Ç‚¤‚©B
+     * @param arg verboseãƒ¢ãƒ¼ãƒ‰ã§å‹•ä½œã•ã›ã‚‹ã‹ã©ã†ã‹ã€‚
      */
     public void setVerbose(final boolean arg) {
         fInput.setVerbose(arg);
     }
 
     /**
-     * verboseƒ‚[ƒh‚Å“®ì‚³‚¹‚é‚©‚Ç‚¤‚©B
+     * verboseãƒ¢ãƒ¼ãƒ‰ã§å‹•ä½œã•ã›ã‚‹ã‹ã©ã†ã‹ã€‚
      *
-     * @return verboseƒ‚[ƒh‚Å“®ì‚³‚¹‚é‚©‚Ç‚¤‚©B
+     * @return verboseãƒ¢ãƒ¼ãƒ‰ã§å‹•ä½œã•ã›ã‚‹ã‹ã©ã†ã‹ã€‚
      */
     public boolean getVerbose() {
         return fInput.getVerbose();
     }
 
     /**
-     * Antƒ^ƒXƒN‚Ì[metadir]ƒAƒgƒŠƒrƒ…[ƒg‚ÌƒZƒbƒ^[ƒƒ\ƒbƒhB
+     * Antã‚¿ã‚¹ã‚¯ã®[metadir]ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      *
-     * €–Ú”Ô†: 1<br>
-     * ƒƒ^ƒfƒBƒŒƒNƒgƒŠBxlsƒtƒ@ƒCƒ‹‚ÌŠi”[æ‚Ü‚½‚Í xmlƒtƒ@ƒCƒ‹‚ÌŠi”[æ‚ğw’è‚µ‚Ü‚·B<br>
+     * é …ç›®ç•ªå·: 1<br>
+     * ãƒ¡ã‚¿ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã€‚xlsãƒ•ã‚¡ã‚¤ãƒ«ã®æ ¼ç´å…ˆã¾ãŸã¯ xmlãƒ•ã‚¡ã‚¤ãƒ«ã®æ ¼ç´å…ˆã‚’æŒ‡å®šã—ã¾ã™ã€‚<br>
      *
-     * @param arg ƒZƒbƒg‚µ‚½‚¢’l
+     * @param arg ã‚»ãƒƒãƒˆã—ãŸã„å€¤
      */
     public void setMetadir(final String arg) {
         fInput.setMetadir(arg);
@@ -94,25 +94,25 @@ public class BlancoMeta2XmlTask extends Task {
     }
 
     /**
-     * Antƒ^ƒXƒN‚Ì[metadir]ƒAƒgƒŠƒrƒ…[ƒg‚ÌƒQƒbƒ^[ƒƒ\ƒbƒhB
+     * Antã‚¿ã‚¹ã‚¯ã®[metadir]ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      *
-     * €–Ú”Ô†: 1<br>
-     * ƒƒ^ƒfƒBƒŒƒNƒgƒŠBxlsƒtƒ@ƒCƒ‹‚ÌŠi”[æ‚Ü‚½‚Í xmlƒtƒ@ƒCƒ‹‚ÌŠi”[æ‚ğw’è‚µ‚Ü‚·B<br>
-     * •K{ƒAƒgƒŠƒrƒ…[ƒg‚Å‚·BApache Antƒ^ƒXƒNã‚Å•K‚¸’l‚ªw’è‚³‚ê‚Ü‚·B<br>
+     * é …ç›®ç•ªå·: 1<br>
+     * ãƒ¡ã‚¿ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã€‚xlsãƒ•ã‚¡ã‚¤ãƒ«ã®æ ¼ç´å…ˆã¾ãŸã¯ xmlãƒ•ã‚¡ã‚¤ãƒ«ã®æ ¼ç´å…ˆã‚’æŒ‡å®šã—ã¾ã™ã€‚<br>
+     * å¿…é ˆã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã§ã™ã€‚Apache Antã‚¿ã‚¹ã‚¯ä¸Šã§å¿…ãšå€¤ãŒæŒ‡å®šã•ã‚Œã¾ã™ã€‚<br>
      *
-     * @return ‚±‚ÌƒtƒB[ƒ‹ƒh‚Ì’l
+     * @return ã“ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å€¤
      */
     public String getMetadir() {
         return fInput.getMetadir();
     }
 
     /**
-     * Antƒ^ƒXƒN‚Ì[targetdir]ƒAƒgƒŠƒrƒ…[ƒg‚ÌƒZƒbƒ^[ƒƒ\ƒbƒhB
+     * Antã‚¿ã‚¹ã‚¯ã®[targetdir]ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      *
-     * €–Ú”Ô†: 2<br>
-     * o—ÍæƒtƒHƒ‹ƒ_‚ğw’è‚µ‚Ü‚·B–³w’è‚Ìê‡‚É‚ÍƒJƒŒƒ“ƒg’¼‰º‚Ìblanco‚ğ—p‚¢‚Ü‚·B<br>
+     * é …ç›®ç•ªå·: 2<br>
+     * å‡ºåŠ›å…ˆãƒ•ã‚©ãƒ«ãƒ€ã‚’æŒ‡å®šã—ã¾ã™ã€‚ç„¡æŒ‡å®šã®å ´åˆã«ã¯ã‚«ãƒ¬ãƒ³ãƒˆç›´ä¸‹ã®blancoã‚’ç”¨ã„ã¾ã™ã€‚<br>
      *
-     * @param arg ƒZƒbƒg‚µ‚½‚¢’l
+     * @param arg ã‚»ãƒƒãƒˆã—ãŸã„å€¤
      */
     public void setTargetdir(final String arg) {
         fInput.setTargetdir(arg);
@@ -120,25 +120,25 @@ public class BlancoMeta2XmlTask extends Task {
     }
 
     /**
-     * Antƒ^ƒXƒN‚Ì[targetdir]ƒAƒgƒŠƒrƒ…[ƒg‚ÌƒQƒbƒ^[ƒƒ\ƒbƒhB
+     * Antã‚¿ã‚¹ã‚¯ã®[targetdir]ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      *
-     * €–Ú”Ô†: 2<br>
-     * o—ÍæƒtƒHƒ‹ƒ_‚ğw’è‚µ‚Ü‚·B–³w’è‚Ìê‡‚É‚ÍƒJƒŒƒ“ƒg’¼‰º‚Ìblanco‚ğ—p‚¢‚Ü‚·B<br>
-     * ƒfƒtƒHƒ‹ƒg’l[blanco]‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚·BApache Antƒ^ƒXƒNã‚ÅƒAƒgƒŠƒrƒ…[ƒg‚Ìw’è‚ª–³‚¢ê‡‚É‚ÍAƒfƒtƒHƒ‹ƒg’l‚ªİ’è‚³‚ê‚Ü‚·B<br>
+     * é …ç›®ç•ªå·: 2<br>
+     * å‡ºåŠ›å…ˆãƒ•ã‚©ãƒ«ãƒ€ã‚’æŒ‡å®šã—ã¾ã™ã€‚ç„¡æŒ‡å®šã®å ´åˆã«ã¯ã‚«ãƒ¬ãƒ³ãƒˆç›´ä¸‹ã®blancoã‚’ç”¨ã„ã¾ã™ã€‚<br>
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤[blanco]ãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã™ã€‚Apache Antã‚¿ã‚¹ã‚¯ä¸Šã§ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã®æŒ‡å®šãŒç„¡ã„å ´åˆã«ã¯ã€ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ãŒè¨­å®šã•ã‚Œã¾ã™ã€‚<br>
      *
-     * @return ‚±‚ÌƒtƒB[ƒ‹ƒh‚Ì’l
+     * @return ã“ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å€¤
      */
     public String getTargetdir() {
         return fInput.getTargetdir();
     }
 
     /**
-     * Antƒ^ƒXƒN‚Ì[tmpdir]ƒAƒgƒŠƒrƒ…[ƒg‚ÌƒZƒbƒ^[ƒƒ\ƒbƒhB
+     * Antã‚¿ã‚¹ã‚¯ã®[tmpdir]ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      *
-     * €–Ú”Ô†: 3<br>
-     * ƒeƒ“ƒ|ƒ‰ƒŠƒfƒBƒŒƒNƒgƒŠ‚ğw’è‚µ‚Ü‚·B–³w’è‚Ìê‡‚É‚ÍƒJƒŒƒ“ƒg’¼‰º‚Ìtmp‚ğ—p‚¢‚Ü‚·B<br>
+     * é …ç›®ç•ªå·: 3<br>
+     * ãƒ†ãƒ³ãƒãƒ©ãƒªãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’æŒ‡å®šã—ã¾ã™ã€‚ç„¡æŒ‡å®šã®å ´åˆã«ã¯ã‚«ãƒ¬ãƒ³ãƒˆç›´ä¸‹ã®tmpã‚’ç”¨ã„ã¾ã™ã€‚<br>
      *
-     * @param arg ƒZƒbƒg‚µ‚½‚¢’l
+     * @param arg ã‚»ãƒƒãƒˆã—ãŸã„å€¤
      */
     public void setTmpdir(final String arg) {
         fInput.setTmpdir(arg);
@@ -146,25 +146,25 @@ public class BlancoMeta2XmlTask extends Task {
     }
 
     /**
-     * Antƒ^ƒXƒN‚Ì[tmpdir]ƒAƒgƒŠƒrƒ…[ƒg‚ÌƒQƒbƒ^[ƒƒ\ƒbƒhB
+     * Antã‚¿ã‚¹ã‚¯ã®[tmpdir]ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      *
-     * €–Ú”Ô†: 3<br>
-     * ƒeƒ“ƒ|ƒ‰ƒŠƒfƒBƒŒƒNƒgƒŠ‚ğw’è‚µ‚Ü‚·B–³w’è‚Ìê‡‚É‚ÍƒJƒŒƒ“ƒg’¼‰º‚Ìtmp‚ğ—p‚¢‚Ü‚·B<br>
-     * ƒfƒtƒHƒ‹ƒg’l[tmp]‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚·BApache Antƒ^ƒXƒNã‚ÅƒAƒgƒŠƒrƒ…[ƒg‚Ìw’è‚ª–³‚¢ê‡‚É‚ÍAƒfƒtƒHƒ‹ƒg’l‚ªİ’è‚³‚ê‚Ü‚·B<br>
+     * é …ç›®ç•ªå·: 3<br>
+     * ãƒ†ãƒ³ãƒãƒ©ãƒªãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’æŒ‡å®šã—ã¾ã™ã€‚ç„¡æŒ‡å®šã®å ´åˆã«ã¯ã‚«ãƒ¬ãƒ³ãƒˆç›´ä¸‹ã®tmpã‚’ç”¨ã„ã¾ã™ã€‚<br>
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤[tmp]ãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã™ã€‚Apache Antã‚¿ã‚¹ã‚¯ä¸Šã§ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã®æŒ‡å®šãŒç„¡ã„å ´åˆã«ã¯ã€ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ãŒè¨­å®šã•ã‚Œã¾ã™ã€‚<br>
      *
-     * @return ‚±‚ÌƒtƒB[ƒ‹ƒh‚Ì’l
+     * @return ã“ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å€¤
      */
     public String getTmpdir() {
         return fInput.getTmpdir();
     }
 
     /**
-     * Antƒ^ƒXƒN‚Ì[encoding]ƒAƒgƒŠƒrƒ…[ƒg‚ÌƒZƒbƒ^[ƒƒ\ƒbƒhB
+     * Antã‚¿ã‚¹ã‚¯ã®[encoding]ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      *
-     * €–Ú”Ô†: 4<br>
-     * ©“®¶¬‚·‚éƒ\[ƒXƒtƒ@ƒCƒ‹‚Ì•¶šƒGƒ“ƒR[ƒfƒBƒ“ƒO‚ğw’è‚µ‚Ü‚·B<br>
+     * é …ç›®ç•ªå·: 4<br>
+     * è‡ªå‹•ç”Ÿæˆã™ã‚‹ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã®æ–‡å­—ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã‚’æŒ‡å®šã—ã¾ã™ã€‚<br>
      *
-     * @param arg ƒZƒbƒg‚µ‚½‚¢’l
+     * @param arg ã‚»ãƒƒãƒˆã—ãŸã„å€¤
      */
     public void setEncoding(final String arg) {
         fInput.setEncoding(arg);
@@ -172,24 +172,24 @@ public class BlancoMeta2XmlTask extends Task {
     }
 
     /**
-     * Antƒ^ƒXƒN‚Ì[encoding]ƒAƒgƒŠƒrƒ…[ƒg‚ÌƒQƒbƒ^[ƒƒ\ƒbƒhB
+     * Antã‚¿ã‚¹ã‚¯ã®[encoding]ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      *
-     * €–Ú”Ô†: 4<br>
-     * ©“®¶¬‚·‚éƒ\[ƒXƒtƒ@ƒCƒ‹‚Ì•¶šƒGƒ“ƒR[ƒfƒBƒ“ƒO‚ğw’è‚µ‚Ü‚·B<br>
+     * é …ç›®ç•ªå·: 4<br>
+     * è‡ªå‹•ç”Ÿæˆã™ã‚‹ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã®æ–‡å­—ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã‚’æŒ‡å®šã—ã¾ã™ã€‚<br>
      *
-     * @return ‚±‚ÌƒtƒB[ƒ‹ƒh‚Ì’l
+     * @return ã“ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å€¤
      */
     public String getEncoding() {
         return fInput.getEncoding();
     }
 
     /**
-     * Antƒ^ƒXƒN‚Ì[cache]ƒAƒgƒŠƒrƒ…[ƒg‚ÌƒZƒbƒ^[ƒƒ\ƒbƒhB
+     * Antã‚¿ã‚¹ã‚¯ã®[cache]ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      *
-     * €–Ú”Ô†: 5<br>
-     * ’è‹`‘ƒƒ^ƒtƒ@ƒCƒ‹‚©‚ç’†ŠÔXMLƒtƒ@ƒCƒ‹‚Ö‚Ì•ÏŠ·‚ğƒLƒƒƒbƒVƒ…‚ÅÏ‚Ü‚·‚©‚Ç‚¤‚©‚Ìƒtƒ‰ƒOB<br>
+     * é …ç›®ç•ªå·: 5<br>
+     * å®šç¾©æ›¸ãƒ¡ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ä¸­é–“XMLãƒ•ã‚¡ã‚¤ãƒ«ã¸ã®å¤‰æ›ã‚’ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã§æ¸ˆã¾ã™ã‹ã©ã†ã‹ã®ãƒ•ãƒ©ã‚°ã€‚<br>
      *
-     * @param arg ƒZƒbƒg‚µ‚½‚¢’l
+     * @param arg ã‚»ãƒƒãƒˆã—ãŸã„å€¤
      */
     public void setCache(final String arg) {
         fInput.setCache(arg);
@@ -197,30 +197,30 @@ public class BlancoMeta2XmlTask extends Task {
     }
 
     /**
-     * Antƒ^ƒXƒN‚Ì[cache]ƒAƒgƒŠƒrƒ…[ƒg‚ÌƒQƒbƒ^[ƒƒ\ƒbƒhB
+     * Antã‚¿ã‚¹ã‚¯ã®[cache]ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      *
-     * €–Ú”Ô†: 5<br>
-     * ’è‹`‘ƒƒ^ƒtƒ@ƒCƒ‹‚©‚ç’†ŠÔXMLƒtƒ@ƒCƒ‹‚Ö‚Ì•ÏŠ·‚ğƒLƒƒƒbƒVƒ…‚ÅÏ‚Ü‚·‚©‚Ç‚¤‚©‚Ìƒtƒ‰ƒOB<br>
-     * ƒfƒtƒHƒ‹ƒg’l[false]‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚·BApache Antƒ^ƒXƒNã‚ÅƒAƒgƒŠƒrƒ…[ƒg‚Ìw’è‚ª–³‚¢ê‡‚É‚ÍAƒfƒtƒHƒ‹ƒg’l‚ªİ’è‚³‚ê‚Ü‚·B<br>
+     * é …ç›®ç•ªå·: 5<br>
+     * å®šç¾©æ›¸ãƒ¡ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ä¸­é–“XMLãƒ•ã‚¡ã‚¤ãƒ«ã¸ã®å¤‰æ›ã‚’ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã§æ¸ˆã¾ã™ã‹ã©ã†ã‹ã®ãƒ•ãƒ©ã‚°ã€‚<br>
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤[false]ãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã™ã€‚Apache Antã‚¿ã‚¹ã‚¯ä¸Šã§ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã®æŒ‡å®šãŒç„¡ã„å ´åˆã«ã¯ã€ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ãŒè¨­å®šã•ã‚Œã¾ã™ã€‚<br>
      *
-     * @return ‚±‚ÌƒtƒB[ƒ‹ƒh‚Ì’l
+     * @return ã“ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å€¤
      */
     public String getCache() {
         return fInput.getCache();
     }
 
     /**
-     * Antƒ^ƒXƒN‚ÌƒƒCƒ“ˆ—BApache Ant‚©‚ç ‚±‚Ìƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * Antã‚¿ã‚¹ã‚¯ã®ãƒ¡ã‚¤ãƒ³å‡¦ç†ã€‚Apache Antã‹ã‚‰ ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      *
-     * @throws BuildException ƒ^ƒXƒN‚Æ‚µ‚Ä‚Ì—áŠO‚ª”­¶‚µ‚½ê‡B
+     * @throws BuildException ã‚¿ã‚¹ã‚¯ã¨ã—ã¦ã®ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     @Override
     public final void execute() throws BuildException {
         System.out.println("BlancoMeta2XmlTask begin.");
 
-        // €–Ú”Ô†[1]AƒAƒgƒŠƒrƒ…[ƒg[metadir]‚Í•K{“ü—Í‚Å‚·B“ü—Íƒ`ƒFƒbƒN‚ğs‚¢‚Ü‚·B
+        // é …ç›®ç•ªå·[1]ã€ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[metadir]ã¯å¿…é ˆå…¥åŠ›ã§ã™ã€‚å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã„ã¾ã™ã€‚
         if (fIsFieldMetadirProcessed == false) {
-            throw new BuildException("•K{ƒAƒgƒŠƒrƒ…[ƒg[metadir]‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñBˆ—‚ğ’†’f‚µ‚Ü‚·B");
+            throw new BuildException("å¿…é ˆã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[metadir]ãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚å‡¦ç†ã‚’ä¸­æ–­ã—ã¾ã™ã€‚");
         }
 
         if (getVerbose()) {
@@ -233,11 +233,11 @@ public class BlancoMeta2XmlTask extends Task {
         }
 
         try {
-            // ÀÛ‚ÌAntƒ^ƒXƒN‚Ìåˆ—‚ğÀs‚µ‚Ü‚·B
-            // ‚±‚Ì‰ÓŠ‚ÅƒRƒ“ƒpƒCƒ‹ƒGƒ‰[‚ª”­¶‚·‚éê‡ABlancoMeta2XmlProcessƒCƒ“ƒ^ƒtƒF[ƒX‚ğÀ‘•‚µ‚Ä blanco.meta2xml.taskƒpƒbƒP[ƒW‚É BlancoMeta2XmlProcessImplƒNƒ‰ƒX‚ğì¬‚·‚é‚±‚Æ‚É‚æ‚è‰ğŒˆ‚Å‚«‚éê‡‚ª‚ ‚è‚Ü‚·B
+            // å®Ÿéš›ã®Antã‚¿ã‚¹ã‚¯ã®ä¸»å‡¦ç†ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
+            // ã“ã®ç®‡æ‰€ã§ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã™ã‚‹å ´åˆã€BlancoMeta2XmlProcessã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å®Ÿè£…ã—ã¦ blanco.meta2xml.taskãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã« BlancoMeta2XmlProcessImplã‚¯ãƒ©ã‚¹ã‚’ä½œæˆã™ã‚‹ã“ã¨ã«ã‚ˆã‚Šè§£æ±ºã§ãã‚‹å ´åˆãŒã‚ã‚Šã¾ã™ã€‚
             final BlancoMeta2XmlProcess proc = new BlancoMeta2XmlProcessImpl();
             if (proc.execute(fInput) != BlancoMeta2XmlBatchProcess.END_SUCCESS) {
-                throw new BuildException("ƒ^ƒXƒN‚ÍˆÙíI—¹‚µ‚Ü‚µ‚½B");
+                throw new BuildException("ã‚¿ã‚¹ã‚¯ã¯ç•°å¸¸çµ‚äº†ã—ã¾ã—ãŸã€‚");
             }
         } catch (IllegalArgumentException e) {
             if (getVerbose()) {
@@ -246,10 +246,10 @@ public class BlancoMeta2XmlTask extends Task {
             throw new BuildException(e.getMessage());
         } catch (Exception e) {
             e.printStackTrace();
-            throw new BuildException("ƒ^ƒXƒN‚ğˆ—’†‚É—áŠO‚ª”­¶‚µ‚Ü‚µ‚½Bˆ—‚ğ’†’f‚µ‚Ü‚·B" + e.toString());
+            throw new BuildException("ã‚¿ã‚¹ã‚¯ã‚’å‡¦ç†ä¸­ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚å‡¦ç†ã‚’ä¸­æ–­ã—ã¾ã™ã€‚" + e.toString());
         } catch (Error e) {
             e.printStackTrace();
-            throw new BuildException("ƒ^ƒXƒN‚ğˆ—’†‚ÉƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½Bˆ—‚ğ’†’f‚µ‚Ü‚·B" + e.toString());
+            throw new BuildException("ã‚¿ã‚¹ã‚¯ã‚’å‡¦ç†ä¸­ã«ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚å‡¦ç†ã‚’ä¸­æ–­ã—ã¾ã™ã€‚" + e.toString());
         }
     }
 }

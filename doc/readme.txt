@@ -1,27 +1,27 @@
-blancoMeta2Xml‚Í ƒƒ^ƒtƒ@ƒCƒ‹‚©‚çXMLƒtƒ@ƒCƒ‹‚ð¶¬‚Ì‚½‚ß‚Ì•â•ƒc[ƒ‹‚Å‚·B
-¦“––Ê‚Í Metaƒtƒ@ƒCƒ‹‚©‚çXmlƒtƒ@ƒCƒ‹‚Ö‚Ì•ÏŠ·ˆ—‚ðŽ©“®¶¬‚µ‚Ü‚·B
-¦«—ˆ‚Ìƒo[ƒWƒ‡ƒ“‚Å‚Í Metaƒtƒ@ƒCƒ‹“Ç‚Ýž‚Ý‚Ì’è‹`ƒtƒ@ƒCƒ‹‚ÌŽ©“®¶¬‚ð‚¨‚±‚È‚¤—\’è‚Å‚·B
+blancoMeta2Xmlã¯ ãƒ¡ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰XMLãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç”Ÿæˆã®ãŸã‚ã®è£œåŠ©ãƒ„ãƒ¼ãƒ«ã§ã™ã€‚
+â€»å½“é¢ã¯ Metaãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰Xmlãƒ•ã‚¡ã‚¤ãƒ«ã¸ã®å¤‰æ›å‡¦ç†ã‚’è‡ªå‹•ç”Ÿæˆã—ã¾ã™ã€‚
+â€»å°†æ¥ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã§ã¯ Metaãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿ã®å®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã®è‡ªå‹•ç”Ÿæˆã‚’ãŠã“ãªã†äºˆå®šã§ã™ã€‚
 
-[ŠJ”­ŽÒ]
- 1.ˆÉ‰ê•qŽ÷ (Tosiki Iga / ‚¢‚ª‚Ò‚å‚ñ): ŠJ”­‚¨‚æ‚ÑˆÛŽƒƒ“ƒe’S“–
- 2.ŽR–{kŽi (Y-moto) : ƒŠƒŠ[ƒX”»’è’S“–
+[é–‹ç™ºè€…]
+ 1.ä¼Šè³€æ•æ¨¹ (Tosiki Iga / ã„ãŒã´ã‚‡ã‚“): é–‹ç™ºãŠã‚ˆã³ç¶­æŒãƒ¡ãƒ³ãƒ†æ‹…å½“
+ 2.å±±æœ¬è€•å¸ (Y-moto) : ãƒªãƒªãƒ¼ã‚¹åˆ¤å®šæ‹…å½“
 
-[ƒ‰ƒCƒZƒ“ƒX]
- 1.blancoMeta2Xml ‚Í ƒ‰ƒCƒZƒ“ƒX ‚Æ‚µ‚Ä GNU Lesser General Public License ‚ðÌ—p‚µ‚Ä‚¢‚Ü‚·B
+[ãƒ©ã‚¤ã‚»ãƒ³ã‚¹]
+ 1.blancoMeta2Xml ã¯ ãƒ©ã‚¤ã‚»ãƒ³ã‚¹ ã¨ã—ã¦ GNU Lesser General Public License ã‚’æŽ¡ç”¨ã—ã¦ã„ã¾ã™ã€‚
 
-[ˆË‘¶‚·‚éƒ‰ƒCƒuƒ‰ƒŠ]
-blancoMeta2Xml‚Í‰º‹L‚Ìƒ‰ƒCƒuƒ‰ƒŠ‚ð—˜—p‚µ‚Ä‚¢‚Ü‚·B
-¦ŠeƒI[ƒvƒ“ƒ\[ƒXEƒvƒƒ_ƒNƒg‚Ì’ñ‹ŸŽÒ‚ÉŠ´ŽÓ‚µ‚Ü‚·B
+[ä¾å­˜ã™ã‚‹ãƒ©ã‚¤ãƒ–ãƒ©ãƒª]
+blancoMeta2Xmlã¯ä¸‹è¨˜ã®ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã‚’åˆ©ç”¨ã—ã¦ã„ã¾ã™ã€‚
+â€»å„ã‚ªãƒ¼ãƒ—ãƒ³ã‚½ãƒ¼ã‚¹ãƒ»ãƒ—ãƒ­ãƒ€ã‚¯ãƒˆã®æä¾›è€…ã«æ„Ÿè¬ã—ã¾ã™ã€‚
  1.JExcelApi - Java Excel API - A Java API to read, write and modify Excel spreadsheets
      http://jexcelapi.sourceforge.net/
      http://sourceforge.net/projects/jexcelapi/
      http://www.andykhan.com/jexcelapi/ 
-   ŠT—v: Java‚©‚çExcelƒuƒbƒNŒ`Ž®‚ð“Ç‚Ý‘‚«‚·‚é‚½‚ß‚Ìƒ‰ƒCƒuƒ‰ƒŠ‚Å‚·B
-   ƒ‰ƒCƒZƒ“ƒX: GNU Lesser General Public License
+   æ¦‚è¦: Javaã‹ã‚‰Excelãƒ–ãƒƒã‚¯å½¢å¼ã‚’èª­ã¿æ›¸ãã™ã‚‹ãŸã‚ã®ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã§ã™ã€‚
+   ãƒ©ã‚¤ã‚»ãƒ³ã‚¹: GNU Lesser General Public License
  2.blancoCodeGenerator
-   ŠT—v: ƒ\[ƒXƒR[ƒh¶¬ƒ‰ƒCƒuƒ‰ƒŠ
-   ƒ‰ƒCƒZƒ“ƒX: GNU Lesser General Public License
+   æ¦‚è¦: ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ç”Ÿæˆãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+   ãƒ©ã‚¤ã‚»ãƒ³ã‚¹: GNU Lesser General Public License
  3.blancoCommons
-   ŠT—v: blanco Framework‹¤’Êƒ‰ƒCƒuƒ‰ƒŠ
-         ƒƒ^î•ñƒtƒ@ƒCƒ‹‚ð“Ç‚Ýž‚ÞÛ‚É—˜—p‚µ‚Ä‚¢‚Ü‚·B
-   ƒ‰ƒCƒZƒ“ƒX: GNU Lesser General Public License
+   æ¦‚è¦: blanco Frameworkå…±é€šãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+         ãƒ¡ã‚¿æƒ…å ±ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚€éš›ã«åˆ©ç”¨ã—ã¦ã„ã¾ã™ã€‚
+   ãƒ©ã‚¤ã‚»ãƒ³ã‚¹: GNU Lesser General Public License

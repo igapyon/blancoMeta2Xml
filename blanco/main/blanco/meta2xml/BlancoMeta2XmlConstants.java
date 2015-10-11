@@ -10,30 +10,30 @@
 package blanco.meta2xml;
 
 /**
- * BlancoMeta2Xml�����p����萔��~���܂��B
+ * BlancoMeta2Xmlが利用する定数を蓄えます。
  */
 public class BlancoMeta2XmlConstants {
     /**
-     * ���ڔԍ�:1<br>
-     * �v���_�N�g���B�p���Ŏw�肵�܂��B
+     * 項目番号:1<br>
+     * プロダクト名。英字で指定します。
      */
     public static final String PRODUCT_NAME = "blancoMeta2Xml";
 
     /**
-     * ���ڔԍ�:2<br>
-     * �v���_�N�g���̏������ŁB�p���Ŏw�肵�܂��B
+     * 項目番号:2<br>
+     * プロダクト名の小文字版。英字で指定します。
      */
     public static final String PRODUCT_NAME_LOWER = "blancometa2xml";
 
     /**
-     * ���ڔԍ�:3<br>
-     * �o�[�W�����ԍ��B
+     * 項目番号:3<br>
+     * バージョン番号。
      */
     public static final String VERSION = "0.1.4";
 
     /**
-     * ���ڔԍ�:4<br>
-     * �����̉ߒ��ŗ��p�����T�u�f�B���N�g���B
+     * 項目番号:4<br>
+     * 処理の過程で利用されるサブディレクトリ。
      */
     public static final String TARGET_SUBDIRECTORY = "/meta2xml";
 }
