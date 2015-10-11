@@ -1,0 +1,49 @@
+2012.05.28 (0.1.4.1)
+  ソース・パッケージングのためにビルドしなおし。
+
+2009.07.21 (0.1.4)
+  ファイル・ヘッダーを blancoCg にゆだねるようにする。
+  jar ファイル類の更新。
+
+2008.11.22 (0.1.3)
+  jarファイル類の更新。
+
+2008.11.21 (0.1.2)
+  Antタスク名の変更。(他と同じ統一感のある名称に訂正)
+  (削除)BlancoMeta2XmlProcessStructure.xls
+  (削除)BlancoMeta2XmlProcessMeta2Xml.java
+  (削除)BlancoMeta2XmlProcessMeta2Xml.xml
+  (削除)BlancoMeta2XmlProcessProcessImpl.java
+  (削除)BlancoMeta2XmlProcessBatchProcess.java
+  (削除)BlancoMeta2XmlProcessProcess.java
+  (削除)BlancoMeta2XmlProcessTask.java
+  (削除)BlancoMeta2XmlProcessProcessInput.java
+  (削除)BlancoMeta2XmlProcessStructure.java
+
+2008.10.24 (0.1.1)
+  JDK 1.5 対応。
+
+2006.11.30 (0.0.7)
+  ディレクトリ一括処理の際に、スループットを報告する機能を追加。
+  メタファイルからreadmeシートを除去しました。
+  ファイル入出力のバッファサイズを8192に増やしました。meta2xmlの性能が改善するようです。
+  クラスローダからの定義書構造XMLファイルの読込回数を減らすためのキャッシュを実装。
+
+2006.10.18 (0.0.6)
+  blancoCodeGeneratorへの依存を削除。
+  jarファイルの更新。
+
+2006.03.27 (0.0.5)
+  processDirectory時の例外時に、例外メッセージにファイル名が含まれて原因が特定しやすいように機能強化。
+
+2006.02.13 (0.0.4)
+  File.listFiles が nullを戻しうるという仕様に対応。
+
+2006.01.31 (0.0.3)
+  異常系への対応を強化。
+
+2006.01.24 (0.0.2)
+  進捗表示のための仕組みを追加。
+
+2006.01.23 (0.0.1)
+  新規作成
