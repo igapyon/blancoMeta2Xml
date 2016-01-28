@@ -1,3 +1,7 @@
+2016.01.28 (2.0.1)
+  Change version number.
+  JExcelApiからApache POIに変更(.xlsxを読めるように修正)
+
 2015.10.11 (2.0.0)
   Move to github.
 

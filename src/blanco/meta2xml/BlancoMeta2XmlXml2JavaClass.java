@@ -151,6 +151,10 @@ public class BlancoMeta2XmlXml2JavaClass {
             processStructure.setOutputFileExt(BlancoXmlUtil.getTextContent(
                     elementCommon, "outputFileExt"));
         }
+        if (BlancoXmlUtil.getTextContent(elementCommon, "inputFileExtSub") != null) {
+            processStructure.setInputFileExtSub(BlancoXmlUtil.getTextContent(
+                    elementCommon, "inputFileExtSub"));
+        }
 
         expandJavaSource(processStructure, directoryTarget);
     }
@@ -385,6 +389,11 @@ public class BlancoMeta2XmlXml2JavaClass {
             methodProcessDirectory.getLangDoc().getDescriptionList().add(
                     "指定されたフォルダ内の拡張子[" + processStructure.getInputFileExt()
                             + "]のファイルを処理します。<br>");
+            if(processStructure.getInputFileExtSub() != null) {
+                methodProcessDirectory.getLangDoc().getDescriptionList().add(
+                        "指定されたフォルダ内の拡張子[" + processStructure.getInputFileExtSub()
+                                + "]のファイルを処理します。<br>");
+            }
             methodProcessDirectory.getLangDoc().getDescriptionList().add(
                     "処理したデータは もとのファイル名に拡張子["
                             + processStructure.getOutputFileExt()
@@ -443,8 +452,15 @@ public class BlancoMeta2XmlXml2JavaClass {
                     .add("for (int index = 0; index < fileMeta.length; index++) {");
             listLine.add("if (fileMeta[index].getName().endsWith(\""
                     + BlancoJavaSourceUtil
-                            .escapeStringAsJavaSource(processStructure
-                                    .getInputFileExt()) + "\") == false) {");
+                    .escapeStringAsJavaSource(processStructure
+                            .getInputFileExt()) + "\") == false");
+            if(processStructure.getInputFileExtSub() != null){
+                listLine.add(" && fileMeta[index].getName().endsWith(\""
+                        + BlancoJavaSourceUtil
+                        .escapeStringAsJavaSource(processStructure
+                                .getInputFileExtSub()) + "\") == false");
+            }
+            listLine.add(") {");
             listLine.add("// ファイルの拡張子が処理すべきものとは異なるため処理をスキップします。。");
             listLine.add("continue;");
             listLine.add("}");
