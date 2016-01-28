@@ -66,6 +66,14 @@ public class BlancoMeta2XmlStructure {
     private String fOutputFileExt = ".xml";
 
     /**
+     * 入力ファイル拡張子。メタディレクトリ処理に利用されます。
+     *
+     * フィールド: [inputFileExtSub]。
+     * デフォルト: [".xlsx"]。
+     */
+    private String fInputFileExtSub = ".xlsx";
+
+    /**
      * フィールド [name] の値を設定します。
      *
      * フィールドの説明: [フィールド名を指定します。必須項目です。]。
@@ -223,6 +231,29 @@ public class BlancoMeta2XmlStructure {
     }
 
     /**
+     * フィールド [inputFileExtSub] の値を設定します。
+     *
+     * フィールドの説明: [入力ファイル拡張子。メタディレクトリ処理に利用されます。]。
+     *
+     * @param argInputFileExtSub フィールド[inputFileExtSub]に設定する値。
+     */
+    public void setInputFileExtSub(final String argInputFileExtSub) {
+        fInputFileExtSub = argInputFileExtSub;
+    }
+
+    /**
+     * フィールド [inputFileExtSub] の値を取得します。
+     *
+     * フィールドの説明: [入力ファイル拡張子。メタディレクトリ処理に利用されます。]。
+     * デフォルト: [".xlsx"]。
+     *
+     * @return フィールド[inputFileExtSub]から取得した値。
+     */
+    public String getInputFileExtSub() {
+        return fInputFileExtSub;
+    }
+
+    /**
      * このバリューオブジェクトの文字列表現を取得します。
      *
      * <P>使用上の注意</P>
@@ -244,6 +275,7 @@ public class BlancoMeta2XmlStructure {
         buf.append(",convertDefFile=" + fConvertDefFile);
         buf.append(",inputFileExt=" + fInputFileExt);
         buf.append(",outputFileExt=" + fOutputFileExt);
+        buf.append(",inputFileExtSub=" + fInputFileExtSub);
         buf.append("]");
         return buf.toString();
     }

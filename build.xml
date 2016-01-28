@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="blancoMeta2Xml" default="build" basedir=".">
 	<!-- blancoAnt(0.1.7)により自動生成されました。 (2008/11/21) -->
-	<property name="version" value="2.0.0" />
+	<property name="version" value="2.0.1" />
 
 	<property name="project" value="blancoMeta2Xml" />
 	<property name="project.lower" value="blancometa2xml" />
@@ -98,7 +98,7 @@
 	<target name="compile">
 		<delete dir="bin" />
 		<mkdir dir="bin" />
-		<javac destdir="bin" debug="true" source="1.6" target="1.6" fork="true" encoding="${encoding}">
+		<javac destdir="bin" debug="true" source="1.7" target="1.7" fork="true" encoding="${encoding}">
 			<src path="blanco/main/" />
 			<src path="src/" />
 			<classpath>
@@ -135,5 +135,18 @@
 
 	<target name="build" depends="meta,compile,jar,pack">
 	</target>
+
+	<target name="cleanblanco">
+		<delete dir="blanco" />
+		<delete dir="tmp" />
+	</target>
+
+	<target name="cleanjava">
+		<delete dir="bin" />
+		<delete dir="classes" />
+		<mkdir dir="bin" />
+	</target>
+
+	<target name="clean" depends="cleanjava, cleanblanco" />
 
 </project>
