@@ -74,6 +74,14 @@ public class BlancoMeta2XmlStructure {
     private String fInputFileExtSub = ".xlsx";
 
     /**
+     * メタディレクトリ内で処理をスキップすべきファイル。Excelの一時ファイルの正規表現
+     *
+     * フィールド: [excludedFileRegex]。
+     * デフォルト: ["~$"]。
+     */
+    private String fExcludedFileRegex = "~$";
+
+    /**
      * フィールド [name] の値を設定します。
      *
      * フィールドの説明: [フィールド名を指定します。必須項目です。]。
@@ -254,6 +262,29 @@ public class BlancoMeta2XmlStructure {
     }
 
     /**
+     * フィールド [excludedFileRegex] の値を設定します。
+     *
+     * フィールドの説明: [メタディレクトリ内で処理をスキップすべきファイル。Excelの一時ファイルの正規表現]。
+     *
+     * @param argExcludedFileRegex フィールド[excludedFileRegex]に設定する値。
+     */
+    public void setExcludedFileRegex(final String argExcludedFileRegex) {
+        fExcludedFileRegex = argExcludedFileRegex;
+    }
+
+    /**
+     * フィールド [excludedFileRegex] の値を取得します。
+     *
+     * フィールドの説明: [メタディレクトリ内で処理をスキップすべきファイル。Excelの一時ファイルの正規表現]。
+     * デフォルト: ["~$"]。
+     *
+     * @return フィールド[excludedFileRegex]から取得した値。
+     */
+    public String getExcludedFileRegex() {
+        return fExcludedFileRegex;
+    }
+
+    /**
      * このバリューオブジェクトの文字列表現を取得します。
      *
      * <P>使用上の注意</P>
@@ -276,6 +307,7 @@ public class BlancoMeta2XmlStructure {
         buf.append(",inputFileExt=" + fInputFileExt);
         buf.append(",outputFileExt=" + fOutputFileExt);
         buf.append(",inputFileExtSub=" + fInputFileExtSub);
+        buf.append(",excludedFileRegex=" + fExcludedFileRegex);
         buf.append("]");
         return buf.toString();
     }
