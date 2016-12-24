@@ -15,6 +15,19 @@
 			<artifactId>blanco-commons</artifactId>
 			<version>2.0.1</version>
 		</dependency>
+
+		<dependency>
+			<groupId>blanco.cg</groupId>
+			<artifactId>blanco-cg</artifactId>
+			<version>2.0.3</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.ant/ant -->
+		<dependency>
+			<groupId>org.apache.ant</groupId>
+			<artifactId>ant</artifactId>
+			<version>1.9.7</version>
+		</dependency>
 	</dependencies>
 
 	<!-- ===================================== -->
