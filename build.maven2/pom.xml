@@ -6,8 +6,8 @@
 	<artifactId>blanco-meta2xml</artifactId>
 	<packaging>jar</packaging>
 	<version>2.0.3</version>
-	<name>blanco-cg</name>
-	<url>https://igapyon.github.io/blancofw-maven2/</url>
+	<name>blanco-meta2xml</name>
+	<url>https://igapyon.github.io/blancofw-maven2</url>
 
 	<dependencies>
 		<dependency>
@@ -39,7 +39,7 @@
 		<repository>
 			<id>blancofw</id>
 			<name>blancofw maven repos</name>
-			<url>https://igapyon.github.io/blancofw-maven2/</url>
+			<url>https://igapyon.github.io/blancofw-maven2</url>
 		</repository>
 	</repositories>
 
