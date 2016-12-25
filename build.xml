@@ -79,7 +79,7 @@
 		<echo>building jar</echo>
 
 		<!-- 定義書読込設定XMLファイル(blancoCalcParserが利用) をコピーします。 -->
-		<copy file="src/main/java/blanco/meta2xml/BlancoMeta2XmlMeta2Xml.xml" todir="bin/blanco/meta2xml" />
+		<copy file="src/main/resources/blanco/meta2xml/BlancoMeta2XmlMeta2Xml.xml" todir="bin/blanco/meta2xml" />
 
 		<delete file="${project.main.jar}" />
 		<jar destfile="${project.main.jar}">
