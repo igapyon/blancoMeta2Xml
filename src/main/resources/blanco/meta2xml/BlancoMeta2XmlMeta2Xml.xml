@@ -34,6 +34,10 @@
         <propertykey name="inputFileExtSub" waitX="2">
           <value>入力ファイル拡張子Sub</value>
         </propertykey>
+        <!-- added by KINOKO 除外ファイルの設定-->
+        <propertykey name="excludedFileRegex" waitX="2">
+          <value>除外すべきファイルの正規表現</value>
+        </propertykey>
       </propertyblock>
 
     </blancocalcparser>

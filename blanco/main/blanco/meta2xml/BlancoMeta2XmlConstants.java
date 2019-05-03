@@ -29,7 +29,7 @@ public class BlancoMeta2XmlConstants {
      * 項目番号:3<br>
      * バージョン番号。
      */
-    public static final String VERSION = "2.0.1";
+    public static final String VERSION = "2.0.2";
 
     /**
      * 項目番号:4<br>

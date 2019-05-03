@@ -155,6 +155,11 @@ public class BlancoMeta2XmlXml2JavaClass {
             processStructure.setInputFileExtSub(BlancoXmlUtil.getTextContent(
                     elementCommon, "inputFileExtSub"));
         }
+        /* added by KINOKO */
+        if (BlancoXmlUtil.getTextContent(elementCommon, "excludedFileRegex") != null) {
+            processStructure.setExcludedFileRegex(BlancoXmlUtil.getTextContent(
+                    elementCommon, "excludedFileRegex"));
+        }
 
         expandJavaSource(processStructure, directoryTarget);
     }
@@ -450,7 +455,7 @@ public class BlancoMeta2XmlXml2JavaClass {
             listLine.add("}");
             listLine
                     .add("for (int index = 0; index < fileMeta.length; index++) {");
-            listLine.add("if (fileMeta[index].getName().endsWith(\""
+            listLine.add("if ((fileMeta[index].getName().endsWith(\""
                     + BlancoJavaSourceUtil
                     .escapeStringAsJavaSource(processStructure
                             .getInputFileExt()) + "\") == false");
@@ -458,8 +463,15 @@ public class BlancoMeta2XmlXml2JavaClass {
                 listLine.add(" && fileMeta[index].getName().endsWith(\""
                         + BlancoJavaSourceUtil
                         .escapeStringAsJavaSource(processStructure
-                                .getInputFileExtSub()) + "\") == false");
+                                .getInputFileExtSub()) + "\") == false)");
             }
+            /* added by KINOKO 読み込みを除外すべきファイル（一時ファイル）をスキップする
+             * @TODO startsWithをmatchesにするべきである
+            */
+            listLine.add("|| fileMeta[index].getName().startsWith(\""
+                    + BlancoJavaSourceUtil
+                    .escapeStringAsJavaSource(processStructure
+                            .getExcludedFileRegex()) + "\")");
             listLine.add(") {");
             listLine.add("// ファイルの拡張子が処理すべきものとは異なるため処理をスキップします。。");
             listLine.add("continue;");
