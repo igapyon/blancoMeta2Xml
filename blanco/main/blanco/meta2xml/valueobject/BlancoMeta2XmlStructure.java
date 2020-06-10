@@ -311,4 +311,51 @@ public class BlancoMeta2XmlStructure {
         buf.append("]");
         return buf.toString();
     }
+
+    /**
+     * このバリューオブジェクトを指定のターゲットに複写します。
+     *
+     * <P>使用上の注意</P>
+     * <UL>
+     * <LI>オブジェクトのシャロー範囲のみ複写処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
+     * </UL>
+     *
+     * @param target target value object.
+     */
+    public void copyTo(final BlancoMeta2XmlStructure target) {
+        if (target == null) {
+            throw new IllegalArgumentException("Bug: BlancoMeta2XmlStructure#copyTo(target): argument 'target' is null");
+        }
+
+        // No needs to copy parent class.
+
+        // Name: fName
+        // Type: java.lang.String
+        target.fName = this.fName;
+        // Name: fPackage
+        // Type: java.lang.String
+        target.fPackage = this.fPackage;
+        // Name: fDescription
+        // Type: java.lang.String
+        target.fDescription = this.fDescription;
+        // Name: fFileDescription
+        // Type: java.lang.String
+        target.fFileDescription = this.fFileDescription;
+        // Name: fConvertDefFile
+        // Type: java.lang.String
+        target.fConvertDefFile = this.fConvertDefFile;
+        // Name: fInputFileExt
+        // Type: java.lang.String
+        target.fInputFileExt = this.fInputFileExt;
+        // Name: fOutputFileExt
+        // Type: java.lang.String
+        target.fOutputFileExt = this.fOutputFileExt;
+        // Name: fInputFileExtSub
+        // Type: java.lang.String
+        target.fInputFileExtSub = this.fInputFileExtSub;
+        // Name: fExcludedFileRegex
+        // Type: java.lang.String
+        target.fExcludedFileRegex = this.fExcludedFileRegex;
+    }
 }
