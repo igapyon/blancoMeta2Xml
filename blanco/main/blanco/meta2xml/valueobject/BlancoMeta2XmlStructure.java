@@ -1,12 +1,3 @@
-/*
- * blanco Framework
- * Copyright (C) 2004-2009 IGA Tosiki
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- */
 package blanco.meta2xml.valueobject;
 
 /**
@@ -38,7 +29,7 @@ public class BlancoMeta2XmlStructure {
      * ファイルコメントを指定します。
      *
      * フィールド: [fileDescription]。
-     * デフォルト: ["このクラスはblancoValueObjectにより自動生成されました。"]。
+     * デフォルト: [&quot;このクラスはblancoValueObjectにより自動生成されました。&quot;]。
      */
     private String fFileDescription = "このクラスはblancoValueObjectにより自動生成されました。";
 
@@ -53,7 +44,7 @@ public class BlancoMeta2XmlStructure {
      * 入力ファイル拡張子。メタディレクトリ処理に利用されます。
      *
      * フィールド: [inputFileExt]。
-     * デフォルト: [".xls"]。
+     * デフォルト: [&quot;.xls&quot;]。
      */
     private String fInputFileExt = ".xls";
 
@@ -61,7 +52,7 @@ public class BlancoMeta2XmlStructure {
      * 出力ファイル拡張子。メタディレクトリ処理に利用されます。
      *
      * フィールド: [outputFileExt]。
-     * デフォルト: [".xml"]。
+     * デフォルト: [&quot;.xml&quot;]。
      */
     private String fOutputFileExt = ".xml";
 
@@ -69,7 +60,7 @@ public class BlancoMeta2XmlStructure {
      * 入力ファイル拡張子。メタディレクトリ処理に利用されます。
      *
      * フィールド: [inputFileExtSub]。
-     * デフォルト: [".xlsx"]。
+     * デフォルト: [&quot;.xlsx&quot;]。
      */
     private String fInputFileExtSub = ".xlsx";
 
@@ -77,7 +68,7 @@ public class BlancoMeta2XmlStructure {
      * メタディレクトリ内で処理をスキップすべきファイル。Excelの一時ファイルの正規表現
      *
      * フィールド: [excludedFileRegex]。
-     * デフォルト: ["~$"]。
+     * デフォルト: [&quot;~$&quot;]。
      */
     private String fExcludedFileRegex = "~$";
 
@@ -162,7 +153,7 @@ public class BlancoMeta2XmlStructure {
      * フィールド [fileDescription] の値を取得します。
      *
      * フィールドの説明: [ファイルコメントを指定します。]。
-     * デフォルト: ["このクラスはblancoValueObjectにより自動生成されました。"]。
+     * デフォルト: [&quot;このクラスはblancoValueObjectにより自動生成されました。&quot;]。
      *
      * @return フィールド[fileDescription]から取得した値。
      */
@@ -207,7 +198,7 @@ public class BlancoMeta2XmlStructure {
      * フィールド [inputFileExt] の値を取得します。
      *
      * フィールドの説明: [入力ファイル拡張子。メタディレクトリ処理に利用されます。]。
-     * デフォルト: [".xls"]。
+     * デフォルト: [&quot;.xls&quot;]。
      *
      * @return フィールド[inputFileExt]から取得した値。
      */
@@ -230,7 +221,7 @@ public class BlancoMeta2XmlStructure {
      * フィールド [outputFileExt] の値を取得します。
      *
      * フィールドの説明: [出力ファイル拡張子。メタディレクトリ処理に利用されます。]。
-     * デフォルト: [".xml"]。
+     * デフォルト: [&quot;.xml&quot;]。
      *
      * @return フィールド[outputFileExt]から取得した値。
      */
@@ -253,7 +244,7 @@ public class BlancoMeta2XmlStructure {
      * フィールド [inputFileExtSub] の値を取得します。
      *
      * フィールドの説明: [入力ファイル拡張子。メタディレクトリ処理に利用されます。]。
-     * デフォルト: [".xlsx"]。
+     * デフォルト: [&quot;.xlsx&quot;]。
      *
      * @return フィールド[inputFileExtSub]から取得した値。
      */
@@ -276,7 +267,7 @@ public class BlancoMeta2XmlStructure {
      * フィールド [excludedFileRegex] の値を取得します。
      *
      * フィールドの説明: [メタディレクトリ内で処理をスキップすべきファイル。Excelの一時ファイルの正規表現]。
-     * デフォルト: ["~$"]。
+     * デフォルト: [&quot;~$&quot;]。
      *
      * @return フィールド[excludedFileRegex]から取得した値。
      */
