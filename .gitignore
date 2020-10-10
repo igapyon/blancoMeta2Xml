@@ -1,4 +1,14 @@
 /bin/
 /.cvsignore
 /blancoMeta2Xml-*-src.zip
+.svn
+.classpath
+.project
+.idea
+.DS_Store
+/tmp
+/blanco/main
+/blanco.php/main
+/classes
+*.iml
 /target/

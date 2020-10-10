@@ -1,12 +1,3 @@
-/*
- * blanco Framework
- * Copyright (C) 2004-2009 IGA Tosiki
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- */
 package blanco.meta2xml.task.valueobject;
 
 /**
@@ -218,5 +209,43 @@ public class BlancoMeta2XmlProcessInput {
         buf.append(",cache=" + fCache);
         buf.append("]");
         return buf.toString();
+    }
+
+    /**
+     * このバリューオブジェクトを指定のターゲットに複写します。
+     *
+     * <P>使用上の注意</P>
+     * <UL>
+     * <LI>オブジェクトのシャロー範囲のみ複写処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
+     * </UL>
+     *
+     * @param target target value object.
+     */
+    public void copyTo(final BlancoMeta2XmlProcessInput target) {
+        if (target == null) {
+            throw new IllegalArgumentException("Bug: BlancoMeta2XmlProcessInput#copyTo(target): argument 'target' is null");
+        }
+
+        // No needs to copy parent class.
+
+        // Name: fVerbose
+        // Type: boolean
+        target.fVerbose = this.fVerbose;
+        // Name: fMetadir
+        // Type: java.lang.String
+        target.fMetadir = this.fMetadir;
+        // Name: fTargetdir
+        // Type: java.lang.String
+        target.fTargetdir = this.fTargetdir;
+        // Name: fTmpdir
+        // Type: java.lang.String
+        target.fTmpdir = this.fTmpdir;
+        // Name: fEncoding
+        // Type: java.lang.String
+        target.fEncoding = this.fEncoding;
+        // Name: fCache
+        // Type: java.lang.String
+        target.fCache = this.fCache;
     }
 }

@@ -1,12 +1,3 @@
-/*
- * blanco Framework
- * Copyright (C) 2004-2009 IGA Tosiki
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- */
 package blanco.meta2xml.valueobject;
 
 /**
@@ -38,7 +29,7 @@ public class BlancoMeta2XmlStructure {
      * ファイルコメントを指定します。
      *
      * フィールド: [fileDescription]。
-     * デフォルト: ["このクラスはblancoValueObjectにより自動生成されました。"]。
+     * デフォルト: [&quot;このクラスはblancoValueObjectにより自動生成されました。&quot;]。
      */
     private String fFileDescription = "このクラスはblancoValueObjectにより自動生成されました。";
 
@@ -53,7 +44,7 @@ public class BlancoMeta2XmlStructure {
      * 入力ファイル拡張子。メタディレクトリ処理に利用されます。
      *
      * フィールド: [inputFileExt]。
-     * デフォルト: [".xls"]。
+     * デフォルト: [&quot;.xls&quot;]。
      */
     private String fInputFileExt = ".xls";
 
@@ -61,9 +52,25 @@ public class BlancoMeta2XmlStructure {
      * 出力ファイル拡張子。メタディレクトリ処理に利用されます。
      *
      * フィールド: [outputFileExt]。
-     * デフォルト: [".xml"]。
+     * デフォルト: [&quot;.xml&quot;]。
      */
     private String fOutputFileExt = ".xml";
+
+    /**
+     * 入力ファイル拡張子。メタディレクトリ処理に利用されます。
+     *
+     * フィールド: [inputFileExtSub]。
+     * デフォルト: [&quot;.xlsx&quot;]。
+     */
+    private String fInputFileExtSub = ".xlsx";
+
+    /**
+     * メタディレクトリ内で処理をスキップすべきファイル。Excelの一時ファイルの正規表現
+     *
+     * フィールド: [excludedFileRegex]。
+     * デフォルト: [&quot;~$&quot;]。
+     */
+    private String fExcludedFileRegex = "~$";
 
     /**
      * フィールド [name] の値を設定します。
@@ -146,7 +153,7 @@ public class BlancoMeta2XmlStructure {
      * フィールド [fileDescription] の値を取得します。
      *
      * フィールドの説明: [ファイルコメントを指定します。]。
-     * デフォルト: ["このクラスはblancoValueObjectにより自動生成されました。"]。
+     * デフォルト: [&quot;このクラスはblancoValueObjectにより自動生成されました。&quot;]。
      *
      * @return フィールド[fileDescription]から取得した値。
      */
@@ -191,7 +198,7 @@ public class BlancoMeta2XmlStructure {
      * フィールド [inputFileExt] の値を取得します。
      *
      * フィールドの説明: [入力ファイル拡張子。メタディレクトリ処理に利用されます。]。
-     * デフォルト: [".xls"]。
+     * デフォルト: [&quot;.xls&quot;]。
      *
      * @return フィールド[inputFileExt]から取得した値。
      */
@@ -214,12 +221,58 @@ public class BlancoMeta2XmlStructure {
      * フィールド [outputFileExt] の値を取得します。
      *
      * フィールドの説明: [出力ファイル拡張子。メタディレクトリ処理に利用されます。]。
-     * デフォルト: [".xml"]。
+     * デフォルト: [&quot;.xml&quot;]。
      *
      * @return フィールド[outputFileExt]から取得した値。
      */
     public String getOutputFileExt() {
         return fOutputFileExt;
+    }
+
+    /**
+     * フィールド [inputFileExtSub] の値を設定します。
+     *
+     * フィールドの説明: [入力ファイル拡張子。メタディレクトリ処理に利用されます。]。
+     *
+     * @param argInputFileExtSub フィールド[inputFileExtSub]に設定する値。
+     */
+    public void setInputFileExtSub(final String argInputFileExtSub) {
+        fInputFileExtSub = argInputFileExtSub;
+    }
+
+    /**
+     * フィールド [inputFileExtSub] の値を取得します。
+     *
+     * フィールドの説明: [入力ファイル拡張子。メタディレクトリ処理に利用されます。]。
+     * デフォルト: [&quot;.xlsx&quot;]。
+     *
+     * @return フィールド[inputFileExtSub]から取得した値。
+     */
+    public String getInputFileExtSub() {
+        return fInputFileExtSub;
+    }
+
+    /**
+     * フィールド [excludedFileRegex] の値を設定します。
+     *
+     * フィールドの説明: [メタディレクトリ内で処理をスキップすべきファイル。Excelの一時ファイルの正規表現]。
+     *
+     * @param argExcludedFileRegex フィールド[excludedFileRegex]に設定する値。
+     */
+    public void setExcludedFileRegex(final String argExcludedFileRegex) {
+        fExcludedFileRegex = argExcludedFileRegex;
+    }
+
+    /**
+     * フィールド [excludedFileRegex] の値を取得します。
+     *
+     * フィールドの説明: [メタディレクトリ内で処理をスキップすべきファイル。Excelの一時ファイルの正規表現]。
+     * デフォルト: [&quot;~$&quot;]。
+     *
+     * @return フィールド[excludedFileRegex]から取得した値。
+     */
+    public String getExcludedFileRegex() {
+        return fExcludedFileRegex;
     }
 
     /**
@@ -244,7 +297,56 @@ public class BlancoMeta2XmlStructure {
         buf.append(",convertDefFile=" + fConvertDefFile);
         buf.append(",inputFileExt=" + fInputFileExt);
         buf.append(",outputFileExt=" + fOutputFileExt);
+        buf.append(",inputFileExtSub=" + fInputFileExtSub);
+        buf.append(",excludedFileRegex=" + fExcludedFileRegex);
         buf.append("]");
         return buf.toString();
+    }
+
+    /**
+     * このバリューオブジェクトを指定のターゲットに複写します。
+     *
+     * <P>使用上の注意</P>
+     * <UL>
+     * <LI>オブジェクトのシャロー範囲のみ複写処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
+     * </UL>
+     *
+     * @param target target value object.
+     */
+    public void copyTo(final BlancoMeta2XmlStructure target) {
+        if (target == null) {
+            throw new IllegalArgumentException("Bug: BlancoMeta2XmlStructure#copyTo(target): argument 'target' is null");
+        }
+
+        // No needs to copy parent class.
+
+        // Name: fName
+        // Type: java.lang.String
+        target.fName = this.fName;
+        // Name: fPackage
+        // Type: java.lang.String
+        target.fPackage = this.fPackage;
+        // Name: fDescription
+        // Type: java.lang.String
+        target.fDescription = this.fDescription;
+        // Name: fFileDescription
+        // Type: java.lang.String
+        target.fFileDescription = this.fFileDescription;
+        // Name: fConvertDefFile
+        // Type: java.lang.String
+        target.fConvertDefFile = this.fConvertDefFile;
+        // Name: fInputFileExt
+        // Type: java.lang.String
+        target.fInputFileExt = this.fInputFileExt;
+        // Name: fOutputFileExt
+        // Type: java.lang.String
+        target.fOutputFileExt = this.fOutputFileExt;
+        // Name: fInputFileExtSub
+        // Type: java.lang.String
+        target.fInputFileExtSub = this.fInputFileExtSub;
+        // Name: fExcludedFileRegex
+        // Type: java.lang.String
+        target.fExcludedFileRegex = this.fExcludedFileRegex;
     }
 }
