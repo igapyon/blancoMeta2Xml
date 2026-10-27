@@ -5,49 +5,49 @@ import java.io.IOException;
 import blanco.meta2xml.task.valueobject.BlancoMeta2XmlProcessInput;
 
 /**
- * バッチ処理クラス [BlancoMeta2XmlBatchProcess]。
+ * Batch process class [BlancoMeta2XmlBatchProcess].
  *
- * <P>バッチ処理の呼び出し例。</P>
+ * <P>Example of a batch processing call.</P>
  * <code>
- * java -classpath (クラスパス) blanco.meta2xml.task.BlancoMeta2XmlBatchProcess -help
+ * java -classpath (classpath) blanco.meta2xml.task.BlancoMeta2XmlBatchProcess -help
  * </code>
  */
 public class BlancoMeta2XmlBatchProcess {
     /**
-     * 正常終了。
+     * Normal end.
      */
     public static final int END_SUCCESS = 0;
 
     /**
-     * 入力異常終了。内部的にjava.lang.IllegalArgumentExceptionが発生した場合。
+     * Termination due to abnormal input. In the case that java.lang.IllegalArgumentException is raised internally.
      */
     public static final int END_ILLEGAL_ARGUMENT_EXCEPTION = 7;
 
     /**
-     * 入出力例外終了。内部的にjava.io.IOExceptionが発生した場合。
+     * Termination due to I/O exception. In the case that java.io.IOException is raised internally.
      */
     public static final int END_IO_EXCEPTION = 8;
 
     /**
-     * 異常終了。バッチの処理開始に失敗した場合、および内部的にjava.lang.Errorまたはjava.lang.RuntimeExceptionが発生した場合。
+     * Abnormal end. In the case that batch process fails to start or java.lang.Error or java.lang.RuntimeException is raised internally.
      */
     public static final int END_ERROR = 9;
 
     /**
-     * コマンドラインから実行された際のエントリポイントです。
+     * The entry point when executed from the command line.
      *
-     * @param args コンソールから引き継がれた引数。
+     * @param args Agruments inherited from the console.
      */
     public static final void main(final String[] args) {
         final BlancoMeta2XmlBatchProcess batchProcess = new BlancoMeta2XmlBatchProcess();
 
-        // バッチ処理の引数。
+        // Arguments for batch process.
         final BlancoMeta2XmlProcessInput input = new BlancoMeta2XmlProcessInput();
 
         boolean isNeedUsage = false;
         boolean isFieldMetadirProcessed = false;
 
-        // コマンドライン引数の解析をおこないます。
+        // Parses command line arguments.
         for (int index = 0; index < args.length; index++) {
             String arg = args[index];
             if (arg.startsWith("-verbose=")) {
@@ -67,7 +67,7 @@ public class BlancoMeta2XmlBatchProcess {
                 usage();
                 System.exit(END_SUCCESS);
             } else {
-                System.out.println("BlancoMeta2XmlBatchProcess: 入力パラメータ[" + arg + "]は無視されました。");
+                System.out.println("BlancoMeta2XmlBatchProcess: The input parameter[" + arg + "] was ignored.");
                 isNeedUsage = true;
             }
         }
@@ -77,125 +77,125 @@ public class BlancoMeta2XmlBatchProcess {
         }
 
         if( isFieldMetadirProcessed == false) {
-            System.out.println("BlancoMeta2XmlBatchProcess: 処理開始失敗。入力パラメータ[input]の必須フィールド値[metadir]に値が設定されていません。");
+            System.out.println("BlancoMeta2XmlBatchProcess: Failed to start the process. The required field value[metadir] in the input parameter[input] is not set to a value.");
             System.exit(END_ILLEGAL_ARGUMENT_EXCEPTION);
         }
 
         int retCode = batchProcess.execute(input);
 
-        // 終了コードを戻します。
-        // ※注意：System.exit()を呼び出している点に注意してください。
+        // Returns the exit code.
+        // Note: Please note that calling System.exit().
         System.exit(retCode);
     }
 
     /**
-     * 具体的なバッチ処理内容を記述するためのメソッドです。
+     * A method to describe the specific batch processing contents.
      *
-     * このメソッドに実際の処理内容を記述します。
+     * This method is used to describe the actual process.
      *
-     * @param input バッチ処理の入力パラメータ。
-     * @return バッチ処理の終了コード。END_SUCCESS, END_ILLEGAL_ARGUMENT_EXCEPTION, END_IO_EXCEPTION, END_ERROR のいずれかの値を戻します。
-     * @throws IOException 入出力例外が発生した場合。
-     * @throws IllegalArgumentException 入力値に不正が見つかった場合。
+     * @param input Input parameters for batch process.
+     * @return The exit code for batch process. Returns one of the values END_SUCCESS, END_ILLEGAL_ARGUMENT_EXCEPTION, END_IO_EXCEPTION, END_ERROR
+     * @throws IOException If an I/O exception occurs.
+     * @throws IllegalArgumentException If an invalid input value is found.
      */
     public int process(final BlancoMeta2XmlProcessInput input) throws IOException, IllegalArgumentException {
-        // 入力パラメータをチェックします。
+        // Checks the input parameters.
         validateInput(input);
 
-        // この箇所でコンパイルエラーが発生する場合、BlancoMeta2XmlProcessインタフェースを実装して blanco.meta2xml.taskパッケージに BlancoMeta2XmlProcessImplクラスを作成することにより解決できる場合があります。
+        // If you get a compile error at this point, You may be able to solve it by implementing a BlancoMeta2XmlProcess interface and creating an BlancoMeta2XmlProcessImpl class in package blanco.meta2xml.task.
         final BlancoMeta2XmlProcess process = new BlancoMeta2XmlProcessImpl();
 
-        // 処理の本体を実行します。
+        // Executes the main body of the process.
         final int retCode = process.execute(input);
 
         return retCode;
     }
 
     /**
-     * クラスをインスタンス化してバッチを実行する際のエントリポイントです。
+     * The entry point for instantiating a class and running a batch.
      *
-     * このメソッドは下記の仕様を提供します。
+     * This method provides the following specifications.
      * <ul>
-     * <li>メソッドの入力パラメータの内容チェック。
-     * <li>IllegalArgumentException, RuntimeException, Errorなどの例外をcatchして戻り値へと変換。
+     * <li>Checks the contents of the input parameters of the method.
+     * <li>Catches exceptions such as IllegalArgumentException, RuntimeException, Error, etc. and converts them to return values.
      * </ul>
      *
-     * @param input バッチ処理の入力パラメータ。
-     * @return バッチ処理の終了コード。END_SUCCESS, END_ILLEGAL_ARGUMENT_EXCEPTION, END_IO_EXCEPTION, END_ERROR のいずれかの値を戻します。
-     * @throws IllegalArgumentException 入力値に不正が見つかった場合。
+     * @param input Input parameters for batch process.
+     * @return The exit code for batch process. Returns one of the values END_SUCCESS, END_ILLEGAL_ARGUMENT_EXCEPTION, END_IO_EXCEPTION, END_ERROR
+     * @throws IllegalArgumentException If an invalid input value is found.
      */
     public final int execute(final BlancoMeta2XmlProcessInput input) throws IllegalArgumentException {
         try {
-            // バッチ処理の本体を実行します。
+            // Executes the main body of the batch process.
             int retCode = process(input);
 
             return retCode;
         } catch (IllegalArgumentException ex) {
-            System.out.println("BlancoMeta2XmlBatchProcess: 入力例外が発生しました。バッチ処理を中断します。:" + ex.toString());
-            // 入力異常終了。
+            System.out.println("BlancoMeta2XmlBatchProcess: An input exception has occurred. Abort the batch process.:" + ex.toString());
+            // Termination due to abnormal input.
             return END_ILLEGAL_ARGUMENT_EXCEPTION;
         } catch (IOException ex) {
-            System.out.println("BlancoMeta2XmlBatchProcess: 入出力例外が発生しました。バッチ処理を中断します。:" + ex.toString());
-            // 入力異常終了。
+            System.out.println("BlancoMeta2XmlBatchProcess: An I/O exception has occurred. Abort the batch process.:" + ex.toString());
+            // Termination due to abnormal input.
             return END_IO_EXCEPTION;
         } catch (RuntimeException ex) {
-            System.out.println("BlancoMeta2XmlBatchProcess: ランタイム例外が発生しました。バッチ処理を中断します。:" + ex.toString());
+            System.out.println("BlancoMeta2XmlBatchProcess: A runtime exception has occurred. Abort the batch process.:" + ex.toString());
             ex.printStackTrace();
-            // 異常終了。
+            // Abnormal end.
             return END_ERROR;
         } catch (Error er) {
-            System.out.println("BlancoMeta2XmlBatchProcess: ランタイムエラーが発生しました。バッチ処理を中断します。:" + er.toString());
+            System.out.println("BlancoMeta2XmlBatchProcess: A runtime exception has occurred. Abort the batch process.:" + er.toString());
             er.printStackTrace();
-            // 異常終了。
+            // Abnormal end.
             return END_ERROR;
         }
     }
 
     /**
-     * このバッチ処理クラスの使い方の説明を標準出力に示すためのメソッドです。
+     * A method to show an explanation of how to use this batch processing class on the stdout.
      */
     public static final void usage() {
         System.out.println("BlancoMeta2XmlBatchProcess: Usage:");
-        System.out.println("  java blanco.meta2xml.task.BlancoMeta2XmlBatchProcess -verbose=値1 -metadir=値2 -targetdir=値3 -tmpdir=値4 -encoding=値5 -cache=値6");
+        System.out.println("  java blanco.meta2xml.task.BlancoMeta2XmlBatchProcess -verbose=value1 -metadir=value2 -targetdir=value3 -tmpdir=value4 -encoding=value5 -cache=value6");
         System.out.println("    -verbose");
-        System.out.println("      説明[verboseモードで動作させるかどうか。]");
-        System.out.println("      型[真偽]");
-        System.out.println("      デフォルト値[false]");
+        System.out.println("      explanation[Whether to run in verbose mode.]");
+        System.out.println("      type[boolean]");
+        System.out.println("      default value[false]");
         System.out.println("    -metadir");
-        System.out.println("      説明[メタディレクトリ。xlsファイルの格納先または xmlファイルの格納先を指定します。]");
-        System.out.println("      型[文字列]");
-        System.out.println("      必須パラメータ");
+        System.out.println("      explanation[メタディレクトリ。xlsファイルの格納先または xmlファイルの格納先を指定します。]");
+        System.out.println("      type[string]");
+        System.out.println("      a required parameter");
         System.out.println("    -targetdir");
-        System.out.println("      説明[出力先フォルダを指定します。無指定の場合にはカレント直下のblancoを用います。]");
-        System.out.println("      型[文字列]");
-        System.out.println("      デフォルト値[blanco]");
+        System.out.println("      explanation[出力先フォルダを指定します。無指定の場合にはカレント直下のblancoを用います。]");
+        System.out.println("      type[string]");
+        System.out.println("      default value[blanco]");
         System.out.println("    -tmpdir");
-        System.out.println("      説明[テンポラリディレクトリを指定します。無指定の場合にはカレント直下のtmpを用います。]");
-        System.out.println("      型[文字列]");
-        System.out.println("      デフォルト値[tmp]");
+        System.out.println("      explanation[テンポラリディレクトリを指定します。無指定の場合にはカレント直下のtmpを用います。]");
+        System.out.println("      type[string]");
+        System.out.println("      default value[tmp]");
         System.out.println("    -encoding");
-        System.out.println("      説明[自動生成するソースファイルの文字エンコーディングを指定します。]");
-        System.out.println("      型[文字列]");
+        System.out.println("      explanation[自動生成するソースファイルの文字エンコーディングを指定します。]");
+        System.out.println("      type[string]");
         System.out.println("    -cache");
-        System.out.println("      説明[定義書メタファイルから中間XMLファイルへの変換をキャッシュで済ますかどうかのフラグ。]");
-        System.out.println("      型[文字列]");
-        System.out.println("      デフォルト値[false]");
+        System.out.println("      explanation[定義書メタファイルから中間XMLファイルへの変換をキャッシュで済ますかどうかのフラグ。]");
+        System.out.println("      type[string]");
+        System.out.println("      default value[false]");
         System.out.println("    -? , -help");
-        System.out.println("      説明[使い方を表示します。]");
+        System.out.println("      explanation[show the usage.]");
     }
 
     /**
-     * このバッチ処理クラスの入力パラメータの妥当性チェックを実施するためのメソッドです。
+     * A method to check the validity of input parameters for this batch processing class.
      *
-     * @param input バッチ処理の入力パラメータ。
-     * @throws IllegalArgumentException 入力値に不正が見つかった場合。
+     * @param input Input parameters for batch process.
+     * @throws IllegalArgumentException If an invalid input value is found.
      */
     public void validateInput(final BlancoMeta2XmlProcessInput input) throws IllegalArgumentException {
         if (input == null) {
-            throw new IllegalArgumentException("BlancoBatchProcessBatchProcess: 処理開始失敗。入力パラメータ[input]にnullが与えられました。");
+            throw new IllegalArgumentException("BlancoBatchProcessBatchProcess: Failed to start the process. The input parameter[input] was given as null.");
         }
         if (input.getMetadir() == null) {
-            throw new IllegalArgumentException("BlancoMeta2XmlBatchProcess: 処理開始失敗。入力パラメータ[input]の必須フィールド値[metadir]に値が設定されていません。");
+            throw new IllegalArgumentException("BlancoMeta2XmlBatchProcess: Failed to start the process. The required field value[metadir] in the input parameter[input] is not set to a value.");
         }
     }
 }

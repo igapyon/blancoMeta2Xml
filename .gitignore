@@ -12,3 +12,7 @@
 /classes
 *.iml
 /target/
+/workplace/
+/lib.ant/
+/blancometa2xml-*.jar
+/release-assets/

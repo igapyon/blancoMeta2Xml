@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="blancoMeta2Xml" default="build" basedir=".">
 	<!-- blancoAnt(0.1.7)により自動生成されました。 (2008/11/21) -->
-	<property name="version" value="2.0.2" />
+	<xmlproperty file="pom.xml" prefix="maven" />
+	<property name="version" value="${maven.project.version}" />
 
 	<property name="project" value="blancoMeta2Xml" />
 	<property name="project.lower" value="blancometa2xml" />
@@ -9,45 +10,54 @@
 	<property name="project.main.jar" value="blancometa2xml-${version}.jar" />
 
 	<property name="encoding" value="UTF-8" />
-	<property name="eclipse.dir" value="C:/Program Files/eclipse" />
+	<property environment="env" />
+	<condition property="maven.opts" value="${env.MAVEN_OPTS} -Djava.net.preferIPv4Stack=true">
+		<isset property="env.MAVEN_OPTS" />
+	</condition>
+	<property name="maven.opts" value="-Djava.net.preferIPv4Stack=true" />
+	<property name="maven.repo.local" value="${user.home}/.m2/repository" />
 
-	<!-- Antタスク定義 begin -->
-	<taskdef name="blancoanttask" classname="blanco.anttask.task.BlancoAntTaskTask">
-		<classpath>
-			<fileset dir="target/lib" includes="*.jar" />
-			<fileset dir="lib.ant" includes="*.jar" />
-		</classpath>
-	</taskdef>
+	<!-- Resolve Maven dependencies before loading the generator Ant tasks. -->
+	<target name="resolve-dependencies">
+		<delete dir="target/lib" />
+		<mkdir dir="target/lib" />
+		<exec executable="mvn" failonerror="true">
+			<env key="MAVEN_OPTS" value="${maven.opts}" />
+			<arg value="--batch-mode" /><arg value="--no-transfer-progress" />
+			<arg value="-Dmaven.repo.local=${maven.repo.local}" />
+			<arg value="-f" /><arg value="pom.xml" />
+			<arg value="dependency:copy-dependencies" />
+			<arg value="-DoutputDirectory=target/lib" />
+		</exec>
+	</target>
 
-	<taskdef name="blancoconstants" classname="blanco.constants.task.BlancoConstantsTask">
-		<classpath>
-			<fileset dir="target/lib" includes="*.jar" />
-			<fileset dir="lib.ant" includes="*.jar" />
-		</classpath>
-	</taskdef>
-
-	<taskdef name="blancometa2xml" classname="blanco.meta2xml.task.BlancoMeta2XmlTask">
-		<classpath>
-			<fileset dir="target/lib" includes="*.jar" />
-			<fileset dir="lib.ant" includes="*.jar" />
-		</classpath>
-	</taskdef>
-
-	<taskdef name="blancoresourcebundle" classname="blanco.resourcebundle.task.BlancoResourceBundleTask">
-		<classpath>
-			<fileset dir="target/lib" includes="*.jar" />
-			<fileset dir="lib.ant" includes="*.jar" />
-		</classpath>
-	</taskdef>
-
-	<taskdef name="blancovalueobject" classname="blanco.valueobject.task.BlancoValueObjectTask">
-		<classpath>
-			<fileset dir="target/lib" includes="*.jar" />
-			<fileset dir="lib.ant" includes="*.jar" />
-		</classpath>
-	</taskdef>
-
-	<!-- Antタスク定義 end -->
+	<target name="init" depends="resolve-dependencies">
+		<taskdef name="blancoanttask" classname="blanco.anttask.task.BlancoAntTaskTask">
+			<classpath>
+				<fileset dir="target/lib" includes="*.jar" />
+			</classpath>
+		</taskdef>
+		<taskdef name="blancoconstants" classname="blanco.constants.task.BlancoConstantsTask">
+			<classpath>
+				<fileset dir="target/lib" includes="*.jar" />
+			</classpath>
+		</taskdef>
+		<taskdef name="blancoresourcebundle" classname="blanco.resourcebundle.task.BlancoResourceBundleTask">
+			<classpath>
+				<fileset dir="target/lib" includes="*.jar" />
+			</classpath>
+		</taskdef>
+		<taskdef name="blancovalueobject" classname="blanco.valueobject.task.BlancoValueObjectTask">
+			<classpath>
+				<fileset dir="target/lib" includes="*.jar" />
+			</classpath>
+		</taskdef>
+		<taskdef name="blancometa2xml" classname="blanco.meta2xml.task.BlancoMeta2XmlTask">
+			<classpath>
+				<fileset dir="target/lib" includes="*.jar" />
+			</classpath>
+		</taskdef>
+	</target>
 
 	<target name="pack">
 		<echo>packing project</echo>
@@ -70,7 +80,7 @@
 		</delete>
 
 		<zip destfile="${project.zip}">
-			<zipfileset dir="." prefix="${project}" excludes="${project.zip},**/*.class" />
+			<zipfileset dir="." prefix="${project}" excludes="${project.zip},**/*.class,target/**,.git/**,workplace/**,release-assets/**,lib.ant/**" />
 		</zip>
 
 	</target>
@@ -95,22 +105,28 @@
 		</jar>
 	</target>
 
-	<target name="compile">
+	<target name="compile" depends="init">
 		<delete dir="bin" />
 		<mkdir dir="bin" />
-		<javac destdir="bin" debug="true" source="1.7" target="1.7" fork="true" encoding="${encoding}">
+		<javac destdir="bin" debug="true" release="8" includeantruntime="false" fork="true" encoding="${encoding}">
 			<src path="blanco/main/" />
 			<src path="src/main/java/" />
 			<classpath>
 				<!-- ワイルドカードで一括取り込み -->
 				<fileset dir="target/lib" includes="*.jar" />
-				<pathelement path="${eclipse.dir}/plugins/org.junit_3.8.2.v20080602-1318/junit.jar" />
 			</classpath>
 			<include name="**/*.java" />
 		</javac>
 	</target>
 
-	<target name="meta">
+	<!-- The definition workbook contains a historical version; POM is authoritative. -->
+	<target name="stamp-version">
+		<replaceregexp file="blanco/main/blanco/meta2xml/BlancoMeta2XmlConstants.java"
+			match='(public static final String VERSION = )"[^"]*";'
+			replace='\1"${version}";' byline="true" encoding="UTF-8" />
+	</target>
+
+	<target name="meta" depends="init">
 		<blancoanttask metadir="meta/program" encoding="${encoding}" />
 		<blancoconstants metadir="meta/program" encoding="${encoding}" />
 		<blancoresourcebundle metadir="meta/program" commenttimestamp="false" encoding="${encoding}" />
@@ -118,9 +134,10 @@
 
 		<!-- TODO: ここに自身のantタスクを追加してください。 -->
 		<blancometa2xml metadir="meta/program" targetdir="blanco" encoding="${encoding}" verbose="true" />
+		<antcall target="stamp-version" />
 	</target>
 
-	<target name="build" depends="meta,compile,jar,pack">
+	<target name="build" depends="init,meta,compile,jar,pack">
 	</target>
 
 	<target name="cleanblanco">
