@@ -2,7 +2,7 @@
 
 ## バージョンとJava要件
 
-本体版は`pom.xml`のproject versionを正とします。AntもPOMから読み込みます。現在の候補版は`2.2.0`、対応するタグは`v2.2.0`です。
+本体版は`pom.xml`のproject versionを正とします。AntもPOMから読み込みます。現在の候補版は`2.2.1`、対応するタグは`v2.2.1`です。
 
 定数定義書に残る過去の版は、生成後に`build.xml`の`stamp-version`でPOMの版へ置き換えます。MavenとAntの両方がこの処理を使用するため、本体の`BlancoMeta2XmlConstants.VERSION`も一致します。生成ツール自身が出す版の表示は、そのツールの版です。
 
@@ -39,7 +39,9 @@ POI一式は`5.5.1`、XMLBeansは`5.3.0`を使用します。旧`poi-ooxml-schem
 mvn --batch-mode --no-transfer-progress clean verify
 ```
 
-`meta/program/`の定義書から`blanco/main/`を生成してコンパイルします。既存の生成物がなくても実行できます。生成物の一部は歴史的にGit追跡済みですが、新しい生成物を一括で追加しません。
+`meta/program/`の定義書から`blanco/main/`を生成してコンパイルします。既存の生成物がなくても実行できます。
+
+Gitでは定義書と生成処理を管理し、`blanco/main/`全体を管理外とします。`/blanco/main`のignoreを維持し、生成物を強制追加しません。生成結果を変更する場合は、元の定義書または生成処理を修正して再生成します。`git ls-files -- blanco/main`で追跡済みファイルがないことを確認できます。
 
 出力は`target/blanco-meta2xml-<version>.jar`と`target/blanco-meta2xml-<version>-sources.jar`です。通常JARには`blanco/meta2xml/BlancoMeta2XmlMeta2Xml.xml`と、生成されたproperties・XMLがあればそれらも含めます。sources JARには通常ソースと生成済みソースを含めます。source pluginは`jar-no-fork`を使用し、sources JAR作成のために生成フェーズを再実行しません。
 
@@ -88,7 +90,7 @@ Actionsは参照元blancoCgと同じcommit SHAへ固定しています。設定�
 
 `workplace/`はGit管理外です。ログ、検証コピー、PR下書きはここかリポジトリ外へ置きます。`git ls-files workplace`で追跡済みファイルがないことを確認してください。Ant配布物と`release-assets/`もignore対象です。
 
-公開旧版の生成ツールには、コメントや例外文の英語化が含まれます。今回のクリーン生成では、旧構成がsources JAR作成時に再生成していた日本語コメント・例外文との差も現れます。生成経路の固定と`jar-no-fork`により、コンパイルした生成ソースとsources JARの内容を揃えます。既存の追跡済み生成ソースを翻訳目的で一括更新しません。
+公開旧版の生成ツールには、コメントや例外文の英語化が含まれます。旧構成の生成結果との間に、日本語コメント・例外文の差が現れることがあります。生成経路の固定と`jar-no-fork`により、コンパイルした生成ソースとsources JARの内容を揃えます。
 
 ## 整備時の確認（2026-10-27）
 
