@@ -5,7 +5,7 @@
 	<groupId>blanco.meta2xml</groupId>
 	<artifactId>blanco-meta2xml</artifactId>
 	<packaging>jar</packaging>
-	<version>2.1.1</version>
+	<version>2.2.0</version>
 	<name>blanco-meta2xml</name>
 	<url>https://igapyon.github.io/blancofw-maven2</url>
 
@@ -13,8 +13,7 @@
 	<properties>
 		<!-- set source as UTF-8 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.release>8</maven.compiler.release>
 		<github.global.server>github</github.global.server>
 		<git.branchName>gh-pages-poi4</git.branchName>
 		<git.repositoryOwner>uedaueo</git.repositoryOwner>
@@ -47,97 +46,273 @@
 		<repository>
 			<id>blancofw</id>
 			<name>blancofw maven repos</name>
-			<url>https://raw.github.com/uedaueo/blancofw-maven2/${git.branchName}/</url>
+			<url>https://raw.githubusercontent.com/uedaueo/blancofw-maven2/gh-pages-poi5/</url>
 		</repository>
 	</repositories>
 
+	<dependencyManagement>
+		<dependencies>
+			<!-- Pin the public generator graph, including ranges in upstream Blanco POMs. -->
+			<dependency>
+				<groupId>blanco.anttask</groupId>
+				<artifactId>blanco-anttask</artifactId>
+				<version>2.1.6</version>
+			</dependency>
+			<dependency>
+				<groupId>blanco.batchprocess</groupId>
+				<artifactId>blanco-batchprocess</artifactId>
+				<version>2.1.5</version>
+			</dependency>
+			<dependency>
+				<groupId>blanco.commons.io</groupId>
+				<artifactId>blanco-commons</artifactId>
+				<version>2.1.7</version>
+			</dependency>
+			<dependency>
+				<groupId>blanco.cg</groupId>
+				<artifactId>blanco-cg</artifactId>
+				<version>2.3.19</version>
+			</dependency>
+			<dependency>
+				<groupId>blanco.valueobject</groupId>
+				<artifactId>blanco-valueobject</artifactId>
+				<version>2.1.12</version>
+			</dependency>
+			<dependency>
+				<groupId>blanco.constants</groupId>
+				<artifactId>blanco-constants</artifactId>
+				<version>2.1.5</version>
+			</dependency>
+			<dependency>
+				<groupId>blanco.meta2xml</groupId>
+				<artifactId>blanco-meta2xml</artifactId>
+				<version>2.1.3</version>
+			</dependency>
+			<dependency>
+				<groupId>blanco.resourcebundle</groupId>
+				<artifactId>blanco-resourcebundle</artifactId>
+				<version>2.1.5</version>
+			</dependency>
+			<dependency>
+				<groupId>blanco.xml.bind</groupId>
+				<artifactId>blanco-xmlbinding</artifactId>
+				<version>2.1.5</version>
+			</dependency>
+			<dependency>
+				<groupId>blanco.message</groupId>
+				<artifactId>blanco-message</artifactId>
+				<version>2.1.4</version>
+			</dependency>
+			<dependency>
+				<groupId>blanco.stringgroup</groupId>
+				<artifactId>blanco-stringgroup</artifactId>
+				<version>0.5.4</version>
+			</dependency>
+			<dependency>
+				<groupId>blanco.beanutils</groupId>
+				<artifactId>blanco-beanutils</artifactId>
+				<version>1.1.1</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.jetbrains.kotlin</groupId>
+				<artifactId>kotlin-bom</artifactId>
+				<version>2.4.20</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>33.7.2-jre</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-api</artifactId>
+				<version>2.26.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-core</artifactId>
+				<version>2.26.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-ooxml-full</artifactId>
+				<version>5.5.1</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<dependencies>
 		<dependency>
 			<groupId>blanco.anttask</groupId>
 			<artifactId>blanco-anttask</artifactId>
-			<version>[2.0,3.0)</version>
+			<exclusions>
+				<exclusion>
+					<groupId>blanco.meta2xml</groupId>
+					<artifactId>blanco-meta2xml</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.poi</groupId>
+					<artifactId>poi-ooxml-schemas</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
 			<groupId>blanco.batchprocess</groupId>
 			<artifactId>blanco-batchprocess</artifactId>
-			<version>[2.0,3.0)</version>
+			<exclusions>
+				<exclusion>
+					<groupId>blanco.meta2xml</groupId>
+					<artifactId>blanco-meta2xml</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.poi</groupId>
+					<artifactId>poi-ooxml-schemas</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
 			<groupId>blanco.commons.io</groupId>
 			<artifactId>blanco-commons</artifactId>
-			<version>[2.0,3.0)</version>
+			<exclusions>
+				<exclusion>
+					<groupId>blanco.meta2xml</groupId>
+					<artifactId>blanco-meta2xml</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.poi</groupId>
+					<artifactId>poi-ooxml-schemas</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
 			<groupId>blanco.cg</groupId>
 			<artifactId>blanco-cg</artifactId>
-			<version>[2.0,3.0)</version>
+			<exclusions>
+				<exclusion>
+					<groupId>blanco.meta2xml</groupId>
+					<artifactId>blanco-meta2xml</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.poi</groupId>
+					<artifactId>poi-ooxml-schemas</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
 			<groupId>blanco.valueobject</groupId>
 			<artifactId>blanco-valueobject</artifactId>
-			<version>[2.0,3.0)</version>
+			<exclusions>
+				<exclusion>
+					<groupId>blanco.meta2xml</groupId>
+					<artifactId>blanco-meta2xml</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.poi</groupId>
+					<artifactId>poi-ooxml-schemas</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
 			<groupId>blanco.constants</groupId>
 			<artifactId>blanco-constants</artifactId>
-			<version>[2.0,3.0)</version>
+			<exclusions>
+				<exclusion>
+					<groupId>blanco.meta2xml</groupId>
+					<artifactId>blanco-meta2xml</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.poi</groupId>
+					<artifactId>poi-ooxml-schemas</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
 			<groupId>blanco.meta2xml</groupId>
 			<artifactId>blanco-meta2xml</artifactId>
-			<version>[2.0,3.0)</version>
+			<!-- Bootstrap from the previous public release; exclude it from runtime consumers. -->
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>blanco.meta2xml</groupId>
+					<artifactId>blanco-meta2xml</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.poi</groupId>
+					<artifactId>poi-ooxml-schemas</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
 			<groupId>blanco.resourcebundle</groupId>
 			<artifactId>blanco-resourcebundle</artifactId>
-			<version>[2.0,3.0)</version>
+			<exclusions>
+				<exclusion>
+					<groupId>blanco.meta2xml</groupId>
+					<artifactId>blanco-meta2xml</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.poi</groupId>
+					<artifactId>poi-ooxml-schemas</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
 			<groupId>blanco.xml.bind</groupId>
 			<artifactId>blanco-xmlbinding</artifactId>
-			<version>[2.0,3.0)</version>
+			<exclusions>
+				<exclusion>
+					<groupId>blanco.meta2xml</groupId>
+					<artifactId>blanco-meta2xml</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.poi</groupId>
+					<artifactId>poi-ooxml-schemas</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.ant/ant -->
 		<dependency>
 			<groupId>org.apache.ant</groupId>
 			<artifactId>ant</artifactId>
-			<version>[1.9.7,2.0)</version>
+			<version>1.10.18</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
-			<version>4.1.2</version>
+			<version>5.5.1</version>
 <!--			<version>3.13</version>-->
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
-			<version>4.1.2</version>
+			<version>5.5.1</version>
 <!--			<version>3.13</version>-->
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml-schemas</artifactId>
-			<version>4.1.2</version>
+			<artifactId>poi-ooxml-lite</artifactId>
+			<version>5.5.1</version>
 <!--			<version>3.13</version>-->
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-scratchpad -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-scratchpad</artifactId>
-			<version>4.1.2</version>
+			<version>5.5.1</version>
 <!--			<version>3.13</version>-->
 		</dependency>
 
@@ -145,25 +320,152 @@
 		<dependency>
 			<groupId>org.apache.xmlbeans</groupId>
 			<artifactId>xmlbeans</artifactId>
-			<version>3.1.0</version>
+			<version>5.3.0</version>
 <!--			<version>2.6.0</version>-->
 		</dependency>
 
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13.2</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource><directory>src/main/resources</directory></resource>
+			<resource>
+				<directory>blanco/main</directory>
+				<includes><include>**/*.properties</include><include>**/*.xml</include></includes>
+			</resource>
+		</resources>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>3.5.0</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.codehaus.plexus</groupId>
+							<artifactId>plexus-utils</artifactId>
+							<version>4.0.3</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.16.0</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.5.0</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.codehaus.plexus</groupId>
+							<artifactId>plexus-utils</artifactId>
+							<version>3.6.1</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>3.6.0</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>3.5.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>3.2.0</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>3.2.0</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>3.22.0</version>
+					<dependencies>
+						<dependency>
+							<groupId>commons-beanutils</groupId>
+							<artifactId>commons-beanutils</artifactId>
+							<version>1.11.0</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
+			<!-- Keep the release plugin's optional JGit transport on patched, Java 8 compatible releases. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>3.3.1</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.eclipse.jgit</groupId>
+						<artifactId>org.eclipse.jgit</artifactId>
+						<version>5.13.5.202508271544-r</version>
+					</dependency>
+					<dependency>
+						<groupId>org.eclipse.jgit</groupId>
+						<artifactId>org.eclipse.jgit.ssh.apache</artifactId>
+						<version>5.13.5.202508271544-r</version>
+					</dependency>
+					<dependency>
+						<groupId>org.apache.sshd</groupId>
+						<artifactId>sshd-osgi</artifactId>
+						<version>2.20.0</version>
+					</dependency>
+					<dependency>
+						<groupId>org.apache.sshd</groupId>
+						<artifactId>sshd-sftp</artifactId>
+						<version>2.20.0</version>
+					</dependency>
+					<dependency>
+						<groupId>org.apache.sshd</groupId>
+						<artifactId>sshd-core</artifactId>
+						<version>2.20.0</version>
+					</dependency>
+					<dependency>
+						<groupId>org.apache.sshd</groupId>
+						<artifactId>sshd-common</artifactId>
+						<version>2.20.0</version>
+					</dependency>
+					<dependency>
+						<groupId>commons-io</groupId>
+						<artifactId>commons-io</artifactId>
+						<version>2.22.0</version>
+					</dependency>
+					<dependency>
+						<groupId>org.codehaus.plexus</groupId>
+						<artifactId>plexus-utils</artifactId>
+						<version>4.0.3</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.8</version>
+				<version>3.2.0</version>
 				<executions>
 					<execution>
 						<id>blanco-meta-anttask</id>
 						<phase>generate-sources</phase>
 						<configuration>
 							<target>
-								<taskdef name="blancoanttask" classname="blanco.anttask.task.BlancoAntTaskTask" classpathref="maven.runtime.classpath">
+								<taskdef name="blancoanttask" classname="blanco.anttask.task.BlancoAntTaskTask" classpath="${blanco.generator.classpath}">
 								</taskdef>
 								<blancoanttask metadir="meta/program" encoding="${project.build.sourceEncoding}" />
 							</target>
@@ -178,7 +480,7 @@
 						<phase>generate-sources</phase>
 						<configuration>
 							<target>
-								<taskdef name="blancoconstants" classname="blanco.constants.task.BlancoConstantsTask" classpathref="maven.runtime.classpath">
+								<taskdef name="blancoconstants" classname="blanco.constants.task.BlancoConstantsTask" classpath="${blanco.generator.classpath}">
 								</taskdef>
 								<blancoconstants metadir="meta/program" encoding="${project.build.sourceEncoding}" />
 							</target>
@@ -193,7 +495,7 @@
 						<phase>generate-sources</phase>
 						<configuration>
 							<target>
-								<taskdef name="blancoresourcebundle" classname="blanco.resourcebundle.task.BlancoResourceBundleTask" classpathref="maven.runtime.classpath">
+								<taskdef name="blancoresourcebundle" classname="blanco.resourcebundle.task.BlancoResourceBundleTask" classpath="${blanco.generator.classpath}">
 								</taskdef>
 								<blancoresourcebundle metadir="meta/program" encoding="${project.build.sourceEncoding}" commenttimestamp="false" />
 							</target>
@@ -208,7 +510,7 @@
 						<phase>generate-sources</phase>
 						<configuration>
 							<target>
-								<taskdef name="blancovalueobject" classname="blanco.valueobject.task.BlancoValueObjectTask" classpathref="maven.runtime.classpath">
+								<taskdef name="blancovalueobject" classname="blanco.valueobject.task.BlancoValueObjectTask" classpath="${blanco.generator.classpath}">
 								</taskdef>
 								<blancovalueobject metadir="meta/program" encoding="${project.build.sourceEncoding}" />
 							</target>
@@ -223,7 +525,10 @@
 						<phase>generate-sources</phase>
 						<configuration>
 							<target>
-								<taskdef name="blancometa2xml" classname="blanco.meta2xml.task.BlancoMeta2XmlTask" classpathref="maven.runtime.classpath">
+								<whichresource property="blanco.bootstrap.source" resource="blanco/meta2xml/task/BlancoMeta2XmlTask.class"
+									classpath="${blanco.generator.classpath}" />
+								<echo level="info" message="Bootstrap generator: ${blanco.bootstrap.source}" />
+								<taskdef name="blancometa2xml" classname="blanco.meta2xml.task.BlancoMeta2XmlTask" classpath="${blanco.generator.classpath}">
 								</taskdef>
 								<blancometa2xml metadir="meta/program" encoding="${project.build.sourceEncoding}" targetdir="blanco" />
 							</target>
@@ -231,6 +536,15 @@
 						<goals>
 							<goal>run</goal>
 						</goals>
+					</execution>
+
+					<execution>
+						<id>blanco-project-version</id>
+						<phase>process-sources</phase>
+						<goals><goal>run</goal></goals>
+						<configuration>
+							<target><ant antfile="build.xml" target="stamp-version" inheritAll="false" /></target>
+						</configuration>
 					</execution>
 
 					<execution>
@@ -254,12 +568,22 @@
 					<dependency>
 						<groupId>commons-net</groupId>
 						<artifactId>commons-net</artifactId>
-						<version>1.4.1</version>
+						<version>3.13.0</version>
 					</dependency>
 					<dependency>
 						<groupId>org.apache.ant</groupId>
 						<artifactId>ant-commons-net</artifactId>
 						<version>1.8.1</version>
+					</dependency>
+					<dependency>
+						<groupId>org.apache.ant</groupId>
+						<artifactId>ant</artifactId>
+						<version>1.10.18</version>
+					</dependency>
+					<dependency>
+						<groupId>org.codehaus.plexus</groupId>
+						<artifactId>plexus-utils</artifactId>
+						<version>4.0.3</version>
 					</dependency>
 				</dependencies>
 			</plugin>
@@ -268,7 +592,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.12</version>
+				<version>3.6.2</version>
 				<executions>
 					<execution>
 						<phase>generate-sources</phase>
@@ -285,14 +609,13 @@
 				</executions>
 			</plugin>
 
-			<!-- compile as 1.6 compatible -->
+			<!-- compile as 1.8 compatible -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.6.0</version>
+				<version>3.16.0</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+
 				</configuration>
 			</plugin>
 
@@ -300,21 +623,75 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>3.0.1</version>
+				<version>3.4.0</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
 						<goals>
-							<goal>jar</goal>
+							<goal>jar-no-fork</goal>
 						</goals>
 					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.codehaus.plexus</groupId>
+						<artifactId>plexus-utils</artifactId>
+						<version>4.0.3</version>
+					</dependency>
+					<dependency>
+						<groupId>io.airlift</groupId>
+						<artifactId>aircompressor</artifactId>
+						<version>2.0.3</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>3.6.0</version>
+				<configuration>
+					<systemPropertyVariables>
+						<blanco.jar>${project.build.directory}/${project.build.finalName}.jar</blanco.jar>
+						<blanco.sources.jar>${project.build.directory}/${project.build.finalName}-sources.jar</blanco.sources.jar>
+						<blanco.runtime.classpath>${project.build.directory}/runtime-classpath.txt</blanco.runtime.classpath>
+					</systemPropertyVariables>
+				</configuration>
+				<executions>
+					<execution><goals><goal>integration-test</goal><goal>verify</goal></goals></execution>
 				</executions>
 			</plugin>
 
 			<!-- copy jar files into lib directory. -->
 			<plugin>
 				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.11.0</version>
+				<dependencies>
+					<dependency>
+						<groupId>commons-beanutils</groupId>
+						<artifactId>commons-beanutils</artifactId>
+						<version>1.11.0</version>
+					</dependency>
+				</dependencies>
 				<executions>
+					<execution>
+						<id>generator-classpath</id>
+						<phase>initialize</phase>
+						<goals><goal>build-classpath</goal></goals>
+						<configuration>
+							<includeScope>compile</includeScope>
+							<outputProperty>blanco.generator.classpath</outputProperty>
+						</configuration>
+					</execution>
+					<execution>
+						<id>runtime-classpath</id>
+						<phase>generate-test-resources</phase>
+						<goals><goal>build-classpath</goal></goals>
+						<configuration>
+							<includeScope>runtime</includeScope>
+							<outputFile>${project.build.directory}/runtime-classpath.txt</outputFile>
+						</configuration>
+					</execution>
 					<execution>
 						<phase>install</phase>
 						<goals>
@@ -331,6 +708,18 @@
 				<groupId>com.github.github</groupId>
 				<artifactId>site-maven-plugin</artifactId>
 				<version>0.12</version>
+				<dependencies>
+					<dependency>
+						<groupId>com.google.guava</groupId>
+						<artifactId>guava</artifactId>
+						<version>33.4.8-jre</version>
+					</dependency>
+					<dependency>
+						<groupId>org.codehaus.plexus</groupId>
+						<artifactId>plexus-utils</artifactId>
+						<version>3.6.1</version>
+					</dependency>
+				</dependencies>
 				<configuration>
 					<!-- git commit message -->
 					<message>Maven artifacts for ${project.version}</message>
